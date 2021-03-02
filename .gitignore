@@ -1,4 +1,4 @@
 # Default ignored files
 /node_modules/
-/Utility/credentials.json
+/Utility/google-credentials.json
 /Utility/token.json

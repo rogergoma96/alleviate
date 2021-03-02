@@ -8,7 +8,7 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = './Utility/token.json';
-const CREDENTIALS_PATH = './Utility/credentials.json';
+const CREDENTIALS_PATH = './Utility/google-credentials.json';
 
 // Load client secrets from a local file.
 function initAuthorize(callback) {
@@ -16,7 +16,7 @@ function initAuthorize(callback) {
     if (err) {
       console.log('The credentials.json file could not be found or was invalid. \n' +
         'Please visit: https://developers.google.com/calendar/quickstart/nodejs \n' +
-        'and generate a credentials.json file from that site. Then, place your \n' +
+        'and generate a google-credentials.json file from that site. Then, place your \n' +
         'credentials file into the "Utility" directory of this application.');
       process.exit(1);
     }
@@ -56,21 +56,21 @@ function getAccessToken(oAuth2Client, callback) {
 
   const rl = readline.createInterface({input: process.stdin, output: process.stdout});
   rl.question('Enter the code from that page here: ', (code) => {
-      rl.close();
-      oAuth2Client.getToken(code, (err, token) => {
-          if (err) return console.error('Error retrieving access token', err);
-          oAuth2Client.setCredentials(token);
-          // Store the token to disk for later program executions
-          fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
-              if (err) return console.error(err);
-              console.log('Token stored to', TOKEN_PATH);
-          });
-          callback(oAuth2Client);
+    rl.close();
+    oAuth2Client.getToken(code, (err, token) => {
+      if (err) return console.error('Error retrieving access token', err);
+      oAuth2Client.setCredentials(token);
+      // Store the token to disk for later program executions
+      fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
+        if (err) return console.error(err);
+        console.log('Token stored to', TOKEN_PATH);
       });
+      callback(oAuth2Client);
+    });
   });
 }
 
 module.exports = {
-    SCOPES,
-    initAuthorize
+  SCOPES,
+  initAuthorize
 };

@@ -10,7 +10,8 @@ googleAuth.initAuthorize((auth) => this.auth = auth);
 // Routes
 app.get('/api/timeslots', (req, res) => getTimeslots(req, res, this.auth));
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
