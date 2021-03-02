@@ -5,7 +5,7 @@ const { getTimeslots } = require('./api/timeslots');
 const app = express();
 
 // Get the OAuth2 client for making Google Calendar API requests.
-googleAuth.initAuthorize((auth) => this.auth = auth);
+googleAuth.initAuthorize((auth) => (this.auth = auth));
 
 // Routes
 app.get('/api/timeslots', (req, res) => getTimeslots(req, res, this.auth));
