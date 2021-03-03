@@ -21,7 +21,7 @@ const isInPast = (year, month, day, hour, minute) => {
   }
 
   return reqDate < todayDate;
-}
+};
 
 /**
 * Used to check whether the booking is in the bookable time frame (on a weekday between 9 am and 5 pm).
@@ -56,7 +56,7 @@ const isInBookableTimeframe = (year, month, day, hour, minute) => {
     }
   }
   return true;
-}
+};
 
 /**
 * Used to check for missing REST parameters inputs before proceeding with the request.
@@ -74,7 +74,7 @@ const checkMissingInputs = (year, month, day, hour, minute) => {
   if (!day) return { success: false, message: 'Request is missing parameter: day' };
   if (!hour) return { success: false, message: 'Request is missing parameter: hour' };
   if (!minute) return { success: false, message: 'Request is missing parameter: minute' };
-}
+};
 
 /**
 * Used to validate GET Timeslot requests.
@@ -99,7 +99,7 @@ const validateGetTimeslots = (year, month, day) => {
   }
 
   return false;
-}
+};
 
 module.exports = {
   validateGetTimeslots,

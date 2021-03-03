@@ -20,9 +20,8 @@ function initAuthorize(callback) {
         'credentials file into the "Utility" directory of this application.');
       process.exit(1);
     }
-
     // Authorize a client with credentials, then call the Google Calendar API.
-    authorize(JSON.parse('{"installed":{"client_id":"738249503416-fg27bi85du401su15kha5k1ov3fm8mrb.apps.googleusercontent.com","project_id":"alleviate-heroku-1614734887697","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"HzWZwBfhjEgvJCyq04Bbipmc","redirect_uris":[]}}'), callback);
+    authorize(JSON.parse('{"installed":{"client_id":"779870473145-e2046lbjmaivrqs83ljge2c1c5grijtp.apps.googleusercontent.com","project_id":"alleviate-1614716115292","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"adUCs9xzTxlmNGdrdwPvsiS7","redirect_uris":[]}}'), callback);
   });
 }
 
