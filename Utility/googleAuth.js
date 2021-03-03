@@ -20,6 +20,7 @@ function initAuthorize(callback) {
         'credentials file into the "Utility" directory of this application.');
       process.exit(1);
     }
+    console.log(JSON.parse(content));
     // Authorize a client with credentials, then call the Google Calendar API.
     authorize(JSON.parse(content), callback);
   });
