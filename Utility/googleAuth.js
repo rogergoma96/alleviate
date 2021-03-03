@@ -21,7 +21,7 @@ function initAuthorize(callback) {
       process.exit(1);
     }
     // Authorize a client with credentials, then call the Google Calendar API.
-    authorize(JSON.parse('{"installed":{"client_id":"538348451135-9net2utmg4mea4l642fpdka3t90tsf0p.apps.googleusercontent.com","project_id":"alleviate-api-1614737504882","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"FJ74QVI-ePLAkyMS59GSqwM9","redirect_uris":["https://alleviate.herokuapp.com"]}}'), callback);
+    authorize(JSON.parse(content), callback);
   });
 }
 
