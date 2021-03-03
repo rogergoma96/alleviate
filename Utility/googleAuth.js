@@ -20,7 +20,7 @@ function initAuthorize(callback) {
         'credentials file into the "Utility" directory of this application.');
       process.exit(1);
     }
-    console.log(JSON.parse('{"installed":{"client_id":"779870473145-e2046lbjmaivrqs83ljge2c1c5grijtp.apps.googleusercontent.com","project_id":"alleviate-1614716115292","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"adUCs9xzTxlmNGdrdwPvsiS7","redirect_uris":[]}})');
+    console.log(JSON.parse('{"installed":{"client_id":"779870473145-e2046lbjmaivrqs83ljge2c1c5grijtp.apps.googleusercontent.com","project_id":"alleviate-1614716115292","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"adUCs9xzTxlmNGdrdwPvsiS7","redirect_uris":[]}}'));
     // Authorize a client with credentials, then call the Google Calendar API.
     authorize(JSON.parse('{"installed":{"client_id":"779870473145-e2046lbjmaivrqs83ljge2c1c5grijtp.apps.googleusercontent.com","project_id":"alleviate-1614716115292","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"adUCs9xzTxlmNGdrdwPvsiS7","redirect_uris":[]}}'), callback);
   });
