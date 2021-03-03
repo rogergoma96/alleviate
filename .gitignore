@@ -2,3 +2,4 @@
 /node_modules/
 /Utility/google-credentials.json
 /Utility/token.json
+.vercel
