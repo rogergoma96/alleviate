@@ -8,13 +8,13 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = './Utility/token.json';
-const CREDENTIALS_PATH = './Utility/google-credentials.json';
+const CREDENTIALS_PATH = './google-credentials.json';
 
 // Load client secrets from a local file.
 function initAuthorize(callback) {
   fs.readFile(CREDENTIALS_PATH, (err, content) => {
     if (err) {
-      console.log('The credentials.json file could not be found or was invalid. \n' +
+      console.log('The google-credentials.json file could not be found or was invalid. \n' +
         'Please visit: https://developers.google.com/calendar/quickstart/nodejs \n' +
         'and generate a google-credentials.json file from that site. Then, place your \n' +
         'credentials file into the "Utility" directory of this application.');
