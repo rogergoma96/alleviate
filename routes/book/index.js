@@ -3,6 +3,17 @@ const { google } = require("googleapis");
 const { validateBooking } = require("../../Utility/requirementValidator");
 const { makeEventResource } = require("../../Utility/appUtil");
 
+/**
+ * Searches using the provided date for a timeslot matching the hour and minute specified.
+ * 
+ * @param { object } timeslots - Object containing info on each timeslot for the day.
+ * @param { number } year - Year of the timeslot to search for.
+ * @param { number } month - Month of the timeslot to search for.
+ * @param { number } day - Day of the timeslot to search for.
+ * @param { number } hour - Hour of the timeslot to search for.
+ * @param { number } minute - Minute of the timeslot to search for.
+ * @returns { object } - The timeslot object that was found. If nothing was found, returns undefined.
+ */
 const findMatchingTimeslot = (year, month, day, hour, minute) => {
   const timeslotDate = new Date(
     Date.UTC(year, month - 1, day, hour, minute)
@@ -27,6 +38,17 @@ const findMatchingTimeslot = (year, month, day, hour, minute) => {
   return { time: foundTimeslot, date: timeslotDateFormated };
 };
 
+/**
+ * Books an appointment using the given date and time information.
+ *
+ * @param { object } auth - The oAuth2Client used for authentication for the Google Calendar API.
+ * @param { number } year - Year of the timeslot to book.
+ * @param { number } month - Month of the timeslot to book.
+ * @param { number } day - Day of the timeslot to book.
+ * @param { number } hour - Hour of the timeslot to book.
+ * @param { number } minute - Minute of the timeslot to book.
+ * @returns { promise } - A promise representing the eventual completion of the bookAppointment() function.
+ */
 const bookTimeslot = (auth, year, month, day, hour, minute) => {
   return new Promise((resolve, reject) => {
     const isInValid = validateBooking(year, month, day, hour, minute);

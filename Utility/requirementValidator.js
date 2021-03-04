@@ -61,11 +61,11 @@ const isInBookableTimeframe = (year, month, day, hour, minute) => {
 /**
  * Used to check for missing REST parameters inputs before proceeding with the request.
  *
- * @param { number } year  Year value to check. Denote with '0' if not checking for this variable.
- * @param { number } month  Month value to check Denote with '0' if not checking for this variable.
- * @param { number } day  Day value to check Denote with '0' if not checking for this variable.
- * @param { number } hour  Hour value to check. Denote with '0' if not checking for this variable.
- * @param { number } minute  Minute value to check. Denote with '0' if not checking for this variable.
+ * @param { number } year - Year value to check. Denote with '0' if not checking for this variable.
+ * @param { number } month - Month value to check Denote with '0' if not checking for this variable.
+ * @param { number } day - Day value to check Denote with '0' if not checking for this variable.
+ * @param { number } hour - Hour value to check. Denote with '0' if not checking for this variable.
+ * @param { number } minute - Minute value to check. Denote with '0' if not checking for this variable.
  * @returns { object } - Returns an object with info on what parameter was missing.
  */
 const checkMissingInputs = (year, month, day, hour, minute) => {
@@ -83,6 +83,16 @@ const checkMissingInputs = (year, month, day, hour, minute) => {
   return false;
 };
 
+/**
+ * Used to check whether the booking is at least 24 hours in advance.
+ *
+ * @param { number } year - Year of booking.
+ * @param { number } month - Month of booking.
+ * @param { number } day - Day of booking.
+ * @param { number } hour - Hour of booking.
+ * @param { number } minute - Minute of booking.
+ * @returns { boolean } - Returns a boolean representing whether the book is 24 hours in advance.
+ */
 const is24HoursInAdvande = (year, month, day, hour, minute) => {
   const todayDate = new Date(Date.now());
   const plus24hours = todayDate.setUTCHours(todayDate.getUTCHours() + 24);
@@ -91,6 +101,16 @@ const is24HoursInAdvande = (year, month, day, hour, minute) => {
   return reqDate > plus24hours;
 };
 
+/**
+ * Used to validate bookings.
+ *
+ * @param { number } year - Year of booking to check.
+ * @param { number } month - Month of booking to check.
+ * @param { number } day - Day of booking to check.
+ * @param { number } hour - Hour of booking to check.
+ * @param { number } minute - Minute of booking to check.
+ * @returns { object } - Returns an object with info on why the booking was invalid.
+ */
 const validateBooking = (year, month, day, hour, minute) => {
   const missingInputs = checkMissingInputs(year, month, day, hour, minute);
 
@@ -121,6 +141,7 @@ const validateBooking = (year, month, day, hour, minute) => {
 
 /**
  * Used to validate GET Timeslot requests.
+ * 
  * @param { number } year - Year parameter to check.
  * @param { number } month - Month parameter to check.
  * @param { number } day - Day parameter to check.
