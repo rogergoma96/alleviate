@@ -1,6 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
+require('dotenv').config();
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/calendar'];
@@ -12,17 +13,22 @@ const CREDENTIALS_PATH = './google-credentials.json';
 
 // Load client secrets from a local file.
 function initAuthorize(callback) {
-  fs.readFile(CREDENTIALS_PATH, (err, content) => {
-    if (err) {
-      console.log('The google-credentials.json file could not be found or was invalid. \n' +
-        'Please visit: https://developers.google.com/calendar/quickstart/nodejs \n' +
-        'and generate a google-credentials.json file from that site. Then, place your \n' +
-        'credentials file into the "Utility" directory of this application.');
-      process.exit(1);
-    }
+  if (process.env.GOOGLE_CREDENTIALS) {
     // Authorize a client with credentials, then call the Google Calendar API.
-    authorize(JSON.parse(content), callback);
-  });
+    authorize(JSON.parse(process.env.GOOGLE_CREDENTIALS), callback);
+  } else {
+    fs.readFile(CREDENTIALS_PATH, (err, content) => {
+      if (err) {
+        console.log('The google-credentials.json file could not be found or was invalid. \n' +
+          'Please visit: https://developers.google.com/calendar/quickstart/nodejs \n' +
+          'and generate a google-credentials.json file from that site. Then, place your \n' +
+          'credentials file into the "Utility" directory of this application.');
+        process.exit(1);
+      }
+      // Authorize a client with credentials, then call the Google Calendar API.
+      authorize(JSON.parse(content), callback);
+    });
+  }
 }
 
 /**
@@ -35,12 +41,17 @@ function authorize(credentials, callback) {
   const { client_secret, client_id, redirect_uris } = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
 
-  // Check if we have previously stored a token.
-  fs.readFile(TOKEN_PATH, (err, token) => {
-    if (err) return getAccessToken(oAuth2Client, callback);
-    oAuth2Client.setCredentials(JSON.parse(token));
+  if (process.env.GOOGLE_TOKEN) {
+    oAuth2Client.setCredentials(JSON.parse(process.env.GOOGLE_TOKEN));
     callback(oAuth2Client);
-  });
+  } else {
+    // Check if we have previously stored a token.
+    fs.readFile(TOKEN_PATH, (err, token) => {
+      if (err) return getAccessToken(oAuth2Client, callback);
+      oAuth2Client.setCredentials(JSON.parse(token));
+      callback(oAuth2Client);
+    });
+  }  
 }
 
 /**

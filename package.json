@@ -12,6 +12,7 @@
   "author": "Bihotz studio",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "4.17.1",
     "googleapis": "67.1.1"
   },
