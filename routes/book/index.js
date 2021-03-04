@@ -5,8 +5,7 @@ const { makeEventResource } = require("../../Utility/appUtil");
 
 /**
  * Searches using the provided date for a timeslot matching the hour and minute specified.
- * 
- * @param { object } timeslots - Object containing info on each timeslot for the day.
+ *
  * @param { number } year - Year of the timeslot to search for.
  * @param { number } month - Month of the timeslot to search for.
  * @param { number } day - Day of the timeslot to search for.
@@ -47,7 +46,7 @@ const findMatchingTimeslot = (year, month, day, hour, minute) => {
  * @param { number } day - Day of the timeslot to book.
  * @param { number } hour - Hour of the timeslot to book.
  * @param { number } minute - Minute of the timeslot to book.
- * @returns { promise } - A promise representing the eventual completion of the bookAppointment() function.
+ * @returns { promise } - A promise representing the eventual completion of the bookTimeslot() function.
  */
 const bookTimeslot = (auth, year, month, day, hour, minute) => {
   return new Promise((resolve, reject) => {
@@ -81,7 +80,10 @@ const bookTimeslot = (auth, year, month, day, hour, minute) => {
       },
       (err, res) => {
         if (err) {
-          return console.log("Error connecting the calendar service:" + err);
+          return reject({
+            success: false,
+            message: "Error connecting the calendar service: " + err,
+          });
         }
 
         const event = res.data;
@@ -105,11 +107,11 @@ const bookTimeslot = (auth, year, month, day, hour, minute) => {
  * @param { object } auth - The oAuth2Client used for authentication for the Google Calendar API.
  */
 const handleBookTimeslot = (req, res, auth) => {
-  const year = req.query.year;
-  const month = req.query.month;
-  const day = req.query.day;
-  const hour = req.query.hour;
-  const minute = req.query.minute;
+  const { year } = req.query;
+  const { month } = req.query;
+  const { day } = req.query;
+  const { hour } = req.query;
+  const { minute } = req.query;
 
   bookTimeslot(auth, year, month, day, hour, minute)
     .then((data) => res.send(data))

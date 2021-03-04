@@ -1,3 +1,20 @@
+const validateGetDays = (year, month) => {
+  const missingInputs = checkMissingInputs(year, month, "0", "0", "0");
+
+  if (missingInputs) {
+    return missingInputs;
+  }
+
+  if (isInPast(year, month)) {
+    return {
+      success: false,
+      message: "No timeslots are available in the past",
+    };
+  }
+
+  return false;
+};
+
 /**
  * Used to check whether the booking is in the past.
  *
@@ -8,7 +25,13 @@
  * @param { number } minute - Minute of booking.
  * @returns {boolean } - Returns a boolean representing whether the book is in the past.
  */
-const isInPast = (year, month, day, hour, minute) => {
+const isInPast = (
+  year,
+  month,
+  day = undefined,
+  hour = undefined,
+  minute = undefined
+) => {
   const todayDate = Date.now();
   let reqDate = {};
 
@@ -141,7 +164,7 @@ const validateBooking = (year, month, day, hour, minute) => {
 
 /**
  * Used to validate GET Timeslot requests.
- * 
+ *
  * @param { number } year - Year parameter to check.
  * @param { number } month - Month parameter to check.
  * @param { number } day - Day parameter to check.
@@ -172,6 +195,7 @@ const validateGetTimeslots = (year, month, day) => {
 };
 
 module.exports = {
+  validateGetDays,
   validateGetTimeslots,
   validateBooking,
 };

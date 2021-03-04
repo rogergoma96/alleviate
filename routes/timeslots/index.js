@@ -4,18 +4,18 @@ const { validateGetTimeslots } = require("../../Utility/requirementValidator");
 const { getNextDay } = require("../../Utility/appUtil");
 
 /**
- * Returns an array with timeslots; excluding the timeslots that are booked (appointments).
+ * Returns an array with timeslots; excluding the timeslots that are booked.
  *
- * @param { object } appointments - An Object containing info on the appointments booked in the day.
+ * @param { object } bookings - An Object containing info on the appointments booked in the day.
  * @returns { array } resultsArr - An array containing all the available timeslots in the day.
  */
-const getResult = (appointments) => {
+const getResult = (bookings) => {
   const timeslots = JSON.parse(fs.readFileSync("./Utility/timeslots.json"))
     .timeslots;
   let resultsArr = [];
 
   for (let i = 0; i < timeslots.length; i++) {
-    const found = appointments.find(function (element) {
+    const found = bookings.find(function (element) {
       const startTime = element.startTime;
       const finalStartTime = startTime.substring(
         startTime.indexOf("T") + 1,
@@ -74,8 +74,7 @@ const getAvailTimeslots = (auth, year, month, day) => {
           };
         });
 
-        const result = {};
-        result.timeslots = getResult(bookings);
+        const result = { timeslots: getResult(bookings) };
 
         if (result.timeslots[0]) {
           const response = Object.assign({ success: true }, result);
@@ -97,9 +96,9 @@ const getAvailTimeslots = (auth, year, month, day) => {
  * @param { object } auth - The oAuth2Client used for authentication for the Google Calendar API.
  */
 const handleGetTimeslots = (req, res, auth) => {
-  const year = req.query.year;
-  const month = req.query.month;
-  const day = req.query.day;
+  const { year } = req.query;
+  const { month } = req.query;
+  const { day } = req.query;
 
   getAvailTimeslots(auth, year, month, day)
     .then((data) => res.send(data))

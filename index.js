@@ -2,6 +2,7 @@ const express = require("express");
 const googleAuth = require("./Utility/googleAuth.js");
 const { handleGetTimeslots } = require("./routes/timeslots");
 const { handleBookTimeslot } = require("./routes/book");
+const { handleGetDays } = require("./routes/days");
 
 const app = express();
 
@@ -12,6 +13,7 @@ googleAuth.initAuthorize((auth) => (this.auth = auth));
 app.get("/api/timeslots", (req, res) =>
   handleGetTimeslots(req, res, this.auth)
 );
+app.get("/api/days", (req, res) => handleGetDays(req, res, this.auth));
 app.post("/api/book", (req, res) => handleBookTimeslot(req, res, this.auth));
 
 const PORT = process.env.PORT || 3000;

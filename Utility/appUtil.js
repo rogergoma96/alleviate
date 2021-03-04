@@ -1,3 +1,18 @@
+const getCurrDateUTC = () => {
+  const currentDate = new Date();
+  return currentDate.getUTCDate();
+};
+
+const getDateFormISO = (dateISOString) => {
+  const date = new Date(dateISOString);
+  return date.getUTCDate();
+};
+
+const getLastDayOfMonth = (year, month) => {
+  const date = new Date(Date.UTC(year, month, 0));
+  return date.getUTCDate();
+};
+
 /**
  * Creates and returns a Google Calendars 'events resource'.
  *
@@ -33,6 +48,9 @@ const getNextDay = (date) => {
 };
 
 module.exports = {
+  getCurrDateUTC,
+  getDateFormISO,
+  getLastDayOfMonth,
   getNextDay,
   makeEventResource,
 };
