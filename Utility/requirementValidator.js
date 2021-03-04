@@ -1,3 +1,10 @@
+/**
+ * Used to validate GET Days requests.
+ *
+ * @param { number } year - Year parameter to check.
+ * @param { number } month - Month parameter to check.
+ * @returns { object } - Returns an object with info on why the request was invalid.
+ */
 const validateGetDays = (year, month) => {
   const missingInputs = checkMissingInputs(year, month, "0", "0", "0");
 

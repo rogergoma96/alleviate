@@ -1,13 +1,31 @@
+/**
+ * Returns the current date in the UTC timezone.
+ *
+ * @returns { number } - The current date
+ */
 const getCurrDateUTC = () => {
   const currentDate = new Date();
   return currentDate.getUTCDate();
 };
 
+/**
+ * Returns the date from a given ISOString.
+ *
+ * @param { string } dateISOString - The callback for the authorized client.
+ * @returns { number } - The date in a ISO format
+ */
 const getDateFormISO = (dateISOString) => {
   const date = new Date(dateISOString);
   return date.getUTCDate();
 };
 
+/**
+ * Returns the last day of the month.
+ *
+ * @param { number } year - The year.
+ * @param { number } month - The month.
+ * @returns { number } - The last day of the month.
+ */
 const getLastDayOfMonth = (year, month) => {
   const date = new Date(Date.UTC(year, month, 0));
   return date.getUTCDate();
