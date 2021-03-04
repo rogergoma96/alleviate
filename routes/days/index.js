@@ -8,7 +8,7 @@ const { getDateFormISO, getLastDayOfMonth } = require("../../Utility/appUtil");
  * across a full days timeslots (11). If 11 appointment events are found within a
  * same day, then the day which those appointments fell on, is added to the bookedDays array.
  *
- * @param { number } events - Appointment events.
+ * @param { number } items - Appointment events.
  * @returns { number[] } bookedDays - An array containing the days that are fully booked.
  */
 const getBookedDays = (items) => {
@@ -44,9 +44,9 @@ const getBookedDays = (items) => {
  * Uses the bookedDays value returned from getBookedDays() to create an array containing
  * info on whether the day has any timeslots available or not.
  *
- * @param { number } - endDate  End date of the month.
- * @param { number[] } - bookedDays  An array containing the days that are fully booked.
- * @returns { object[] } - daysArr  An array containing objects which represent the days of
+ * @param { number } endDate - End date of the month.
+ * @param { number[] } bookedDays - An array containing the days that are fully booked.
+ * @returns { object[] } daysArr - An array containing objects which represent the days of
  * the month, and whether the day has any timeslots available.
  */
 const makeDaysArr = (endDate, bookedDays) => {

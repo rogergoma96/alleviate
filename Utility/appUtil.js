@@ -34,9 +34,9 @@ const getLastDayOfMonth = (year, month) => {
 /**
  * Creates and returns a Google Calendars 'events resource'.
  *
- * @param { string } - date  A string in the following format: 'Year-month-day'.
- * @param { string } - startTime  The start time to associate with the 'start dateTime'.
- * @param { string } - endTime  The end time to associate with the 'end dateTime'.
+ * @param { string } date -  A string in the following format: 'Year-month-day'.
+ * @param { string } startTime - The start time to associate with the 'start dateTime'.
+ * @param { string } endTime - The end time to associate with the 'end dateTime'.
  * @returns { object } - A Google Calendars 'events resource'.
  */
 const makeEventResource = (date, startTime, endTime) => ({
