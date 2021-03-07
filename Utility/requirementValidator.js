@@ -5,7 +5,7 @@
  * @param { number } month - Month parameter to check.
  * @returns { object } - Returns an object with info on why the request was invalid.
  */
-const validateGetDays = (year, month) => {
+const validateGetDays = (year, month, lastDay) => {
   const missingInputs = checkMissingInputs(year, month, "0", "0", "0");
 
   if (missingInputs) {
@@ -13,9 +13,15 @@ const validateGetDays = (year, month) => {
   }
 
   if (isInPast(year, month)) {
+    const monthDays = [];
+    for (let i = 1; i <= lastDay; i++ ) {
+      monthDays.push({ day: i, hasTimeSlot: false, isInPast: true });
+    }
+
     return {
       success: false,
       message: "No timeslots are available in the past",
+      days: monthDays,
     };
   }
 
@@ -205,4 +211,5 @@ module.exports = {
   validateGetDays,
   validateGetTimeslots,
   validateBooking,
+  isInPast,
 };

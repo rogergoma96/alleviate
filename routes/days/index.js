@@ -1,7 +1,7 @@
-const fs = require("fs");
-const { google } = require("googleapis");
-const { validateGetDays } = require("../../Utility/requirementValidator");
-const { getDateFormISO, getLastDayOfMonth } = require("../../Utility/appUtil");
+const fs = require('fs');
+const { google } = require('googleapis');
+const { isInPast, validateGetDays } = require('../../Utility/requirementValidator');
+const { getDateFormISO, getLastDayOfMonth } = require('../../Utility/appUtil');
 
 /**
  * Searches through the given events (appointments), sees which appointments span
@@ -28,7 +28,7 @@ const getBookedDays = (items) => {
     }
 
     prevDate = getDateFormISO(item.start.dateTime);
-    const timeslots = JSON.parse(fs.readFileSync("./Utility/timeslots.json"))
+    const timeslots = JSON.parse(fs.readFileSync('./Utility/timeslots.json'))
       .timeslots;
 
     if (dayArr.length === timeslots.length) {
@@ -44,19 +44,22 @@ const getBookedDays = (items) => {
  * Uses the bookedDays value returned from getBookedDays() to create an array containing
  * info on whether the day has any timeslots available or not.
  *
+ * @param { number } year - Year to search for.
+ * @param { number } month - Month to search for.
  * @param { number } endDate - End date of the month.
  * @param { number[] } bookedDays - An array containing the days that are fully booked.
  * @returns { object[] } daysArr - An array containing objects which represent the days of
  * the month, and whether the day has any timeslots available.
  */
-const makeDaysArr = (endDate, bookedDays) => {
+const makeDaysArr = (year, month, endDate, bookedDays) => {
   let daysArr = [];
 
   for (let day = 1; day <= endDate; day++) {
+    const past = isInPast(year, month, day);
     if (bookedDays.includes(day)) {
-      daysArr.push({ day, hasTimeSlots: false });
+      daysArr.push({ day, hasTimeSlots: false, isInPast: past });
     } else {
-      daysArr.push({ day, hasTimeSlots: true });
+      daysArr.push({ day, hasTimeSlots: true, isInPast: past });
     }
   }
 
@@ -74,7 +77,8 @@ const makeDaysArr = (endDate, bookedDays) => {
  */
 const getBookableDays = (auth, year, month) => {
   return new Promise((resolve, reject) => {
-    const isInValid = validateGetDays(year, month);
+    const lastDay = getLastDayOfMonth(year, month);
+    const isInValid = validateGetDays(year, month, lastDay);
 
     if (isInValid) {
       reject(isInValid);
@@ -83,15 +87,15 @@ const getBookableDays = (auth, year, month) => {
     const startDate = new Date(Date.UTC(year, month - 1));
     const endDate = new Date(Date.UTC(year, month));
 
-    const calendar = google.calendar({ version: "v3", auth });
+    const calendar = google.calendar({ version: 'v3', auth });
 
     calendar.events.list(
       {
         auth,
-        calendarId: "primary",
+        calendarId: 'primary',
         maxResults: 350,
-        orderBy: "startTime",
-        q: "Reserva limpieza",
+        orderBy: 'startTime',
+        q: 'Reserva limpieza',
         singleEvents: true,
         timeMax: endDate.toISOString(),
         timeMin: startDate.toISOString(),
@@ -100,14 +104,13 @@ const getBookableDays = (auth, year, month) => {
         if (err) {
           return reject({
             success: false,
-            message: "The API returned an error: " + err,
+            message: 'The API returned an error: ' + err,
           });
         }
 
         const { items } = res.data;
 
-        const lastDay = getLastDayOfMonth(year, month);
-        let result = { days: makeDaysArr(lastDay, getBookedDays(items)) };
+        let result = { days: makeDaysArr(year, month, lastDay, getBookedDays(items)) };
         const response = Object.assign({ success: true }, result);
 
         return resolve(response);
