@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
-import { getAvailableTimeSlots, bookTimeSlotService } from '../../services';
-import Header from './Header/Header';
-import styles from './Calendar.module.scss';
+import { useRef, useState } from "react";
+import { getAvailableTimeSlots, bookTimeSlotService } from "../../services";
+import Header from "./Header/Header";
+import styles from "./Calendar.module.scss";
 
 const Calendar = ({ data, year, month }) => {
   const [slots, setSlots] = useState(null);
@@ -18,8 +18,14 @@ const Calendar = ({ data, year, month }) => {
   };
 
   const bookTimeSlot = async (startTime) => {
-    const [hour, minute] = startTime.split(':');
-    const dataPromise = bookTimeSlotService(year, month, selectedDay, hour, minute);
+    const [hour, minute] = startTime.split(":");
+    const dataPromise = bookTimeSlotService(
+      year,
+      month,
+      selectedDay,
+      hour,
+      minute
+    );
     const response = await dataPromise;
 
     if (response.success) {
@@ -34,7 +40,9 @@ const Calendar = ({ data, year, month }) => {
         {data.days.map((day, index) => (
           <button
             type="button"
-            className={`${styles.day} ${selectedDay === day.day ? styles['day--selected'] : ''}`}
+            className={`btn-primary ${styles.day} ${
+              selectedDay === day.day ? styles["day--selected"] : ""
+            }`}
             disabled={day.isInPast || !day.hasTimeSlots}
             key={day.day}
             style={index === 0 ? firstDayCss : {}}
@@ -44,11 +52,17 @@ const Calendar = ({ data, year, month }) => {
           </button>
         ))}
       </div>
-      {slots && slots.timeslots && slots.timeslots.map((timeSlot) => (
-        <button key={timeSlot.startTime} type="button" onClick={() => bookTimeSlot(timeSlot.startTime)}>
-          {`Start time: ${timeSlot.startTime} - End time: ${timeSlot.endTime}`}
-        </button>
-      ))}
+      {slots &&
+        slots.timeslots &&
+        slots.timeslots.map((timeSlot) => (
+          <button
+            key={timeSlot.startTime}
+            type="button"
+            onClick={() => bookTimeSlot(timeSlot.startTime)}
+          >
+            {`Start time: ${timeSlot.startTime} - End time: ${timeSlot.endTime}`}
+          </button>
+        ))}
     </div>
   );
 };

@@ -1,0 +1,45 @@
+$base-size: 16;
+
+@function px2Rem($target, $context: $base-size) {
+  @return ($target / $context) * 1rem;
+}
+
+// FONT SIZE
+$font-size-dsk-title-xl: px2Rem(40);
+$font-size-dsk-title-l: px2Rem(32);
+$font-size-dsk-title-m: px2Rem(32);
+$font-size-dsk-title-s: px2Rem(24);
+$font-size-mbl-title-xl: px2Rem(32);
+$font-size-mbl-title-l: px2Rem(28);
+$font-size-mbl-title-m: px2Rem(24);
+$font-size-mbl-title-s: px2Rem(20);
+$font-size-dsk-subtitle: px2Rem(18);
+$font-size-mbl-subtitle: px2Rem(16);
+$font-size-dsk-body: px2Rem(14);
+$font-size-mbl-body: px2Rem(14);
+$font-size-dsk-action: px2Rem(14);
+$font-size-mbl-action: px2Rem(14);
+$font-size-dsk-caption: px2Rem(12);
+$font-size-mbl-caption: px2Rem(12);
+
+// LINE HEIGHT
+$line-height-dsk-title-xl: px2Rem(64);
+$line-height-dsk-title-l: px2Rem(64);
+$line-height-dsk-title-m: px2Rem(60);
+$line-height-dsk-title-s: px2Rem(48);
+$line-height-mbl-title-xl: px2Rem(48);
+$line-height-mbl-title-l: px2Rem(48);
+$line-height-mbl-title-m: px2Rem(42);
+$line-height-mbl-title-s: px2Rem(40);
+$line-height-dsk-subtitle: px2Rem(32);
+$line-height-mbl-subtitle: px2Rem(32);
+$line-height-dsk-body: px2Rem(21);
+$line-height-mbl-body: px2Rem(21);
+$line-height-dsk-action: px2Rem(21);
+$line-height-mbl-action: px2Rem(21);
+$line-height-dsk-caption: px2Rem(18);
+$line-height-mbl-caption: px2Rem(18);
+
+// LETTER SPACING
+$letter-spacing-m: px2Rem(1);
+$letter-spacing-s: px2Rem(0.3);

@@ -1,0 +1,47 @@
+@use '../settings/colors.scss';
+
+.btn-primary {
+  background-color: $color-white;
+  border: 1px solid $color-white;
+  color: $color-black;
+  cursor: pointer;
+  outline: none;
+  font-size: $font-size-dsk-action;
+  font-family: $font-family-nunito-sans;
+  line-height: $line-height-dsk-action;
+  margin: 16px;
+  padding: 8px;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $color-blue-600;
+    color: $color-white;
+  }
+
+  &:disabled {
+    background-color: $color-blue-300;
+    color: $color-white;
+  }
+}
+
+.btn-secondary {
+  background-color: $color-white;
+  border: 1px solid $color-blue-600;
+  color: $color-black;
+  cursor: pointer;
+  outline: none;
+  font-size: $font-size-dsk-action;
+  font-family: $font-family-nunito-sans;
+  line-height: $line-height-dsk-action;
+  margin: 16px;
+  padding: 8px;
+  text-transform: uppercase;
+
+  &:hover {
+    border-color: $color-black;
+  }
+
+  &:disabled {
+    border-color: $color-gray-600;
+  }
+}

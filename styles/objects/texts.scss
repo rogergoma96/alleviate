@@ -1,0 +1,117 @@
+@use '../settings/colors.scss';
+@use '../settings/breakpoints.scss';
+@use '../settings/fonts.scss';
+@use '../settings/typography.scss';
+
+.text-title-xl {
+  color: $color-black;
+  font-family: $font-family-cormorant-garamond;
+  font-size: $font-size-dsk-title-xl;
+  font-weight: $font-bold;
+  letter-spacing: $letter-spacing-s;
+  line-height: $line-height-dsk-title-xl;
+
+  @media (max-width: $breakpoint-mbl) {
+    font-size: $font-size-mbl-title-xl;
+    line-height: $line-height-mbl-title-xl;
+  }
+}
+
+.text-title-l {
+  color: $color-black;
+  font-family: $font-family-cormorant-garamond;
+  font-size: $font-size-dsk-title-l;
+  font-weight: $font-regular;
+  letter-spacing: $letter-spacing-s;
+  line-height: $line-height-dsk-title-l;
+
+  @media (max-width: $breakpoint-mbl) {
+    font-size: $font-size-mbl-title-l;
+    line-height: $line-height-mbl-title-l;
+  }
+}
+
+.text-title-m {
+  color: $color-black;
+  font-family: $font-family-nunito-sans;
+  font-size: $font-size-dsk-title-m;
+  font-weight: $font-bold;
+  letter-spacing: $letter-spacing-s;
+  line-height: $line-height-dsk-title-m;
+
+  @media (max-width: $breakpoint-mbl) {
+    font-size: $font-size-mbl-title-m;
+    line-height: $line-height-mbl-title-m;
+  }
+}
+
+.text-title-s {
+  color: $color-black;
+  font-family: $font-family-nunito-sans;
+  font-size: $font-size-dsk-title-s;
+  font-weight: $font-bold;
+  letter-spacing: $letter-spacing-s;
+  line-height: $line-height-dsk-title-s;
+
+  @media (max-width: $breakpoint-mbl) {
+    font-size: $font-size-mbl-title-s;
+    line-height: $line-height-mbl-title-s;
+  }
+}
+
+.text-subtitle {
+  color: $color-black;
+  font-family: $font-family-nunito-sans;
+  font-size: $font-size-dsk-subtitle;
+  font-weight: $font-bold;
+  letter-spacing: $letter-spacing-s;
+  line-height: $line-height-dsk-subtitle;
+
+  @media (max-width: $breakpoint-mbl) {
+    font-size: $font-size-mbl-subtitle;
+    line-height: $line-height-mbl-subtitle;
+  }
+}
+
+.text-body {
+  color: $color-black;
+  font-family: $font-family-nunito-sans;
+  font-size: $font-size-dsk-body;
+  font-weight: $font-regular;
+  letter-spacing: $letter-spacing-s;
+  line-height: $line-height-dsk-body;
+
+  @media (max-width: $breakpoint-mbl) {
+    font-size: $font-size-mbl-body;
+    line-height: $line-height-mbl-body;
+  }
+}
+
+.text-action {
+  color: $color-black;
+  font-family: $font-family-nunito-sans;
+  font-size: $font-size-dsk-action;
+  font-weight: $font-bold;
+  letter-spacing: $letter-spacing-s;
+  line-height: $line-height-dsk-action;
+
+  @media (max-width: $breakpoint-mbl) {
+    font-size: $font-size-mbl-action;
+    line-height: $line-height-mbl-action;
+  }
+}
+
+.text-caption {
+  color: $color-black;
+  font-family: $font-family-nunito-sans;
+  font-size: $font-size-dsk-caption;
+  font-weight: $font-regular;
+  letter-spacing: $letter-spacing-s;
+  line-height: $line-height-dsk-caption;
+
+  @media (max-width: $breakpoint-mbl) {
+    font-size: $font-size-mbl-caption;
+    line-height: $line-height-mbl-caption;
+  }
+}
+
