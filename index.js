@@ -16,7 +16,7 @@ googleAuth.initAuthorize((auth) => (this.auth = auth));
 app.prepare().then(() => {
   const server = express();
 
-  // Routes
+  // Api routes
   server.get("/api/timeslots", (req, res) =>
     handleGetTimeslots(req, res, this.auth)
   );

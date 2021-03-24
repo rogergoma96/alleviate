@@ -1,4 +1,20 @@
-@import './settings/index.scss';
 @import './tools/index.scss';
+@import './settings/index.scss';
 @import './objects/index.scss';
 @import './components/index.scss';
+
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+::-moz-selection {
+  background: $color-gray-600;
+}
+
+::selection {
+  background: $color-gray-600;
+}

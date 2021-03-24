@@ -1,10 +1,13 @@
 const bookTimeSlotService = async (year, month, day, hour, minute) => {
-  const response = await fetch(`/api/book?year=${year}&month=${month}&day=${day}&hour=${hour}&minute=${minute}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
+  const response = await fetch(
+    `/api/book?year=${year}&month=${month}&day=${day}&hour=${hour}&minute=${minute}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((res) => res.json())
     .catch((data) => console.log(data));
 
@@ -20,7 +23,9 @@ const getAvailableDaysService = async (year, month) => {
 };
 
 const getAvailableTimeSlots = async (year, month, day) => {
-  const availableTimeSlots = await fetch(`/api/timeslots?year=${year}&month=${month}&day=${day}`)
+  const availableTimeSlots = await fetch(
+    `/api/timeslots?year=${year}&month=${month}&day=${day}`
+  )
     .then((res) => res.json())
     .catch((data) => console.log(data));
 

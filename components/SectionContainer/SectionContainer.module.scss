@@ -1,0 +1,24 @@
+@import '../../styles/settings/colors.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: end;
+  justify-content: space-between;
+}
+
+.image {
+  position: sticky;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: calc(100vh / 1.125);
+  background-color: $color-gray-300;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 78px 2.5rem;
+}

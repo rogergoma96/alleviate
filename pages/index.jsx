@@ -1,33 +1,26 @@
-import { useEffect, useState, useRef } from 'react';
-import { getAvailableDaysService } from '../services';
-import Calendar from '../components/Calendar/Calendar';
+import AirBnb from "../components/AirBnB/AirBnB";
+import DaysAndTime from "../components/DaysAndTime/DaysAndTime";
+import Contact from "../components/Contact/Contact";
+import Cover from "../components/Cover/Cover";
+import HomeAndApartment from "../components/HomeAndApartment/HomeAndApartment";
+import PostConstruction from "../components/PostConstruction/PostConstruction";
+import Moving from "../components/Moving/Moving";
+import Menu from "../components/Menu/Menu";
+import PaymentOptions from "../components/PaymentOptions/PaymentOptions";
 
 const Home = () => {
-  const year = useRef(new Date().getUTCFullYear());
-  const month = useRef(new Date().getUTCMonth() + 1);
-  const [data, setData] = useState(null);
-
-  const getAvailableDays = async () => {
-    const dataPromise = getAvailableDaysService(year.current, month.current);
-    const availableDays = await dataPromise;
-
-    setData(availableDays);
-  };
-
-  useEffect(() => {
-    getAvailableDays();
-  }, []);
-
-  if (!data) {
-    return <p>Loading ...</p>;
-  }
-
-  if (!data || data.lenght === 0) {
-    return <p>No hay ningún dia del mes disponible</p>;
-  }
-
   return (
-    <Calendar data={data} year={year.current} month={month.current} />
+    <div style={{ "scroll-snap-type": "y mandatory" }}>
+      <Menu />
+      <Cover />
+      <HomeAndApartment />
+      <PostConstruction />
+      <AirBnb />
+      <Moving />
+      <DaysAndTime />
+      <PaymentOptions />
+      <Contact />
+    </div>
   );
 };
 

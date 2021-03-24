@@ -3,12 +3,24 @@
 @use '../settings/fonts.scss';
 @use '../settings/typography.scss';
 
+.text-title-xxl {
+  color: $color-black;
+  font-family: $font-family-nunito-sans;
+  font-size: $font-size-dsk-title-xxl;
+  font-weight: $font-regular;
+  line-height: $line-height-dsk-title-xxl;
+
+  @media (max-width: $breakpoint-mbl) {
+    font-size: $font-size-mbl-title-xxl;
+    line-height: $line-height-mbl-title-xxl;
+  }
+}
+
 .text-title-xl {
   color: $color-black;
   font-family: $font-family-cormorant-garamond;
   font-size: $font-size-dsk-title-xl;
   font-weight: $font-bold;
-  letter-spacing: $letter-spacing-s;
   line-height: $line-height-dsk-title-xl;
 
   @media (max-width: $breakpoint-mbl) {
@@ -19,10 +31,9 @@
 
 .text-title-l {
   color: $color-black;
-  font-family: $font-family-cormorant-garamond;
+  font-family: $font-family-nunito-sans;
   font-size: $font-size-dsk-title-l;
-  font-weight: $font-regular;
-  letter-spacing: $letter-spacing-s;
+  font-weight: $font-bold;
   line-height: $line-height-dsk-title-l;
 
   @media (max-width: $breakpoint-mbl) {
@@ -35,8 +46,7 @@
   color: $color-black;
   font-family: $font-family-nunito-sans;
   font-size: $font-size-dsk-title-m;
-  font-weight: $font-bold;
-  letter-spacing: $letter-spacing-s;
+  font-weight: $font-regular;
   line-height: $line-height-dsk-title-m;
 
   @media (max-width: $breakpoint-mbl) {
@@ -50,7 +60,6 @@
   font-family: $font-family-nunito-sans;
   font-size: $font-size-dsk-title-s;
   font-weight: $font-bold;
-  letter-spacing: $letter-spacing-s;
   line-height: $line-height-dsk-title-s;
 
   @media (max-width: $breakpoint-mbl) {
@@ -64,7 +73,6 @@
   font-family: $font-family-nunito-sans;
   font-size: $font-size-dsk-subtitle;
   font-weight: $font-bold;
-  letter-spacing: $letter-spacing-s;
   line-height: $line-height-dsk-subtitle;
 
   @media (max-width: $breakpoint-mbl) {
@@ -78,8 +86,8 @@
   font-family: $font-family-nunito-sans;
   font-size: $font-size-dsk-body;
   font-weight: $font-regular;
-  letter-spacing: $letter-spacing-s;
   line-height: $line-height-dsk-body;
+  letter-spacing: $letter-spacing-s;
 
   @media (max-width: $breakpoint-mbl) {
     font-size: $font-size-mbl-body;
@@ -92,7 +100,6 @@
   font-family: $font-family-nunito-sans;
   font-size: $font-size-dsk-action;
   font-weight: $font-bold;
-  letter-spacing: $letter-spacing-s;
   line-height: $line-height-dsk-action;
 
   @media (max-width: $breakpoint-mbl) {
@@ -106,7 +113,6 @@
   font-family: $font-family-nunito-sans;
   font-size: $font-size-dsk-caption;
   font-weight: $font-regular;
-  letter-spacing: $letter-spacing-s;
   line-height: $line-height-dsk-caption;
 
   @media (max-width: $breakpoint-mbl) {

@@ -1,0 +1,20 @@
+import Image from "next/image";
+
+import styles from "./SectionContainer.module.scss";
+
+const SectionContainer = ({ children, imgUrl, imgDescription }) => (
+  <section className={styles.container}>
+    <div className={styles.texts}>{children}</div>
+    <div className={styles.image}>
+      <Image
+        src={imgUrl}
+        alt={imgDescription}
+        layout="fill"
+        objectFit="contain"
+        quality={100}
+      />
+    </div>
+  </section>
+);
+
+export default SectionContainer;

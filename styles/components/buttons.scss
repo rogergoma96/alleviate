@@ -2,40 +2,17 @@
 
 .btn-primary {
   background-color: $color-white;
-  border: 1px solid $color-white;
-  color: $color-black;
-  cursor: pointer;
-  outline: none;
-  font-size: $font-size-dsk-action;
-  font-family: $font-family-nunito-sans;
-  line-height: $line-height-dsk-action;
-  margin: 16px;
-  padding: 8px;
-  text-transform: uppercase;
-
-  &:hover {
-    background-color: $color-blue-600;
-    color: $color-white;
-  }
-
-  &:disabled {
-    background-color: $color-blue-300;
-    color: $color-white;
-  }
-}
-
-.btn-secondary {
-  background-color: $color-white;
   border: 1px solid $color-blue-600;
   color: $color-black;
   cursor: pointer;
   outline: none;
   font-size: $font-size-dsk-action;
   font-family: $font-family-nunito-sans;
+  font-weight: $font-bold;
   line-height: $line-height-dsk-action;
-  margin: 16px;
-  padding: 8px;
-  text-transform: uppercase;
+  max-width: 350px;
+  padding: 16px;
+  width: 100%;
 
   &:hover {
     border-color: $color-black;
