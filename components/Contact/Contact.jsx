@@ -3,7 +3,7 @@ import SectionContainer from "../SectionContainer/SectionContainer";
 import styles from "./Contact.module.scss";
 
 const Contact = () => (
-  <SectionContainer imgUrl="/images/img_07.jpg" imgDescription="">
+  <SectionContainer id="Contact" imgUrl="/images/img_07.jpg" imgDescription="">
     <h2 className={`text-title-l ${styles.title}`}>Contact Information</h2>
     <p className={`text-title-s ${styles.subtitle}`}>
       If you have any questions, comments, or concerns contact us at any time!

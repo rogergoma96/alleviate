@@ -4,7 +4,7 @@ import SectionContainer from "../SectionContainer/SectionContainer";
 import styles from "./AirBnb.module.scss";
 
 const AirBnb = () => (
-  <SectionContainer imgUrl="/images/img_04.jpg" imgDescription="">
+  <SectionContainer id="AirBnB" imgUrl="/images/img_04.jpg" imgDescription="">
     <h2 className="text-title-s">AirBnB Turnover</h2>
     <p className="text-body">
       Whenever people go on vacation, the kickstart to their experience is the

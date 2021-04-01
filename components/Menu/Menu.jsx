@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import MenuIcon from "../Icons/Menu";
 import CloseIcon from "../Icons/Close";
 
@@ -7,7 +8,11 @@ import Dropdown from "../DropDown/DropDown";
 
 const Menu = () => {
   const [unfolded, setUnfolded] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+
+  const handleClickSection = (id) => {
+    window.scrollTo(0, 0);
+    setUnfolded(!unfolded);
+  };
 
   return (
     <header className={styles.header}>
@@ -29,37 +34,90 @@ const Menu = () => {
         >
           <CloseIcon />
         </button>
-        <li className={`text-action ${styles.section}`}>About us</li>
         <li
           className={`text-action ${styles.section}`}
-          onClick={() => setDropdown(!dropdown)}
+          onClick={() => handleClickSection("AboutUs")}
         >
+          About us
+        </li>
+        <li className={`text-action ${styles.section}`}>
           <Dropdown label="Services">
-            <ul
-              className={`${styles.subsections} ${
-                dropdown ? styles.visible : styles.hidden
-              }`}
-            >
-              <li className={`text-body ${styles.subsection}`}>
-                Home & Apartment
-              </li>
-              <li className={`text-body ${styles.subsection}`}>
-                Post Construction & Remodeling
-              </li>
-              <li className={`text-body ${styles.subsection}`}>
-                AirBnB Turnover
-              </li>
-              <li className={`text-body ${styles.subsection}`}>
-                Move-In & Move-Out
-              </li>
+            <ul className={`${styles.subsections}`}>
+              <Link href="/#HomeAndApartment">
+                <li
+                  className={`text-body ${styles.subsection}`}
+                  onClick={() => setUnfolded(false)}
+                >
+                  Home & Apartment
+                </li>
+              </Link>
+              <Link href="/#PostConstruction">
+                <li
+                  className={`text-body ${styles.subsection}`}
+                  onClick={() => setUnfolded(false)}
+                >
+                  Post Construction & Remodeling
+                </li>
+              </Link>
+              <Link href="/#AirBnB">
+                <li
+                  className={`text-body ${styles.subsection}`}
+                  onClick={() => setUnfolded(false)}
+                >
+                  AirBnB Turnover
+                </li>
+              </Link>
+              <Link href="/#Moving">
+                <li
+                  className={`text-body ${styles.subsection}`}
+                  onClick={() => setUnfolded(false)}
+                >
+                  Move-In & Move-Out
+                </li>
+              </Link>
             </ul>
           </Dropdown>
         </li>
-        <li className={`text-action ${styles.section}`}>Where we service</li>
-        <li className={`text-action ${styles.section}`}>Days & Time</li>
-        <li className={`text-action ${styles.section}`}>Booking</li>
-        <li className={`text-action ${styles.section}`}>Contact</li>
-        <li className={`text-action ${styles.section}`}>FAQ</li>
+        <Link href="/#DaysAndTime">
+          <li
+            className={`text-action ${styles.section}`}
+            onClick={() => setUnfolded(false)}
+          >
+            Where we service
+          </li>
+        </Link>
+        <Link href="/#DaysAndTime">
+          <li
+            className={`text-action ${styles.section}`}
+            onClick={() => setUnfolded(false)}
+          >
+            Days & Time
+          </li>
+        </Link>
+        <Link href="/#Booking">
+          <li
+            className={`text-action ${styles.section}`}
+            onClick={() => setUnfolded(false)}
+          >
+            Booking
+          </li>
+        </Link>
+        <Link href="/#Contact">
+          <li
+            className={`text-action ${styles.section}`}
+            onClick={() => setUnfolded(false)}
+          >
+            Contact
+          </li>
+        </Link>
+        <Link href="/#FAQs">
+          <li
+            className={`text-action ${styles.section}`}
+            onClick={() => setUnfolded(false)}
+          >
+            FAQ
+          </li>
+        </Link>
       </ul>
       {unfolded && (
         <div

@@ -32,4 +32,26 @@ const getAvailableTimeSlots = async (year, month, day) => {
   return availableTimeSlots;
 };
 
-export { getAvailableDaysService, getAvailableTimeSlots, bookTimeSlotService };
+const sendBookingEmail = async (data) => {
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .catch((data) => console.log(data));
+
+  return response;
+};
+
+export {
+  getAvailableDaysService,
+  getAvailableTimeSlots,
+  bookTimeSlotService,
+  sendBookingEmail,
+};

@@ -5,6 +5,9 @@
   border: 1px solid $color-blue-600;
   color: $color-black;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   outline: none;
   font-size: $font-size-dsk-action;
   font-family: $font-family-nunito-sans;
@@ -20,5 +23,6 @@
 
   &:disabled {
     border-color: $color-gray-600;
+    cursor: initial;
   }
 }

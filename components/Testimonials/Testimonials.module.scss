@@ -1,0 +1,15 @@
+.container {
+  padding: 48px 2.5rem;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 80px;
+  grid-row-gap: 80px;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+}

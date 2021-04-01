@@ -1,0 +1,20 @@
+.input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $color-gray-600;
+  padding: 8px;
+  color: $color-black;
+  font-family: $font-family-nunito-sans;
+  font-size: px2Rem(14);
+  font-weight: $font-regular;
+  line-height: px2Rem(21);
+
+  &:focus {
+    outline: none;
+    border-color: $color-black;
+  }
+
+  &::placeholder {
+    color: $color-gray-600;
+  }
+}

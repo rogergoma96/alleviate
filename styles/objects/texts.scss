@@ -112,12 +112,20 @@
   color: $color-black;
   font-family: $font-family-nunito-sans;
   font-size: $font-size-dsk-caption;
-  font-weight: $font-regular;
+  font-weight: $font-bold;
   line-height: $line-height-dsk-caption;
 
   @media (max-width: $breakpoint-mbl) {
     font-size: $font-size-mbl-caption;
     line-height: $line-height-mbl-caption;
   }
+}
+
+.text-body-cormorant {
+  color: $color-black;
+  font-family: $font-family-cormorant-garamond;
+  font-size: $font-size-dsk-body-cormorant-garamond;
+  font-weight: $font-regular;
+  line-height: $line-height-dsk-body-cormorant-garamond;
 }
 

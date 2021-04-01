@@ -4,7 +4,7 @@ import SectionContainer from "../SectionContainer/SectionContainer";
 import styles from "./Moving.module.scss";
 
 const Moving = () => (
-  <SectionContainer imgUrl="/images/img_05.jpg" imgDescription="">
+  <SectionContainer id="Moving" imgUrl="/images/img_05.jpg" imgDescription="">
     <h2 className="text-title-s">Move-In & Move-Out Cleaning</h2>
     <p className="text-body">
       Whenever a home sits unoccupied, it can accumulate cobwebs and dust. To

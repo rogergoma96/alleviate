@@ -4,7 +4,11 @@ import SectionContainer from "../SectionContainer/SectionContainer";
 import styles from "./HomeAndApartment.module.scss";
 
 const HomeAndApartment = () => (
-  <SectionContainer imgUrl="/images/img_03.jpg" imgDescription="">
+  <SectionContainer
+    id="HomeAndApartment"
+    imgUrl="/images/img_03.jpg"
+    imgDescription=""
+  >
     <h3 className={`text-title-l ${styles.title}`}>Services</h3>
     <h2 className={`text-title-s ${styles.section}`}>
       Home & Apartment Cleaning

@@ -2,8 +2,8 @@ import Image from "next/image";
 
 import styles from "./SectionContainer.module.scss";
 
-const SectionContainer = ({ children, imgUrl, imgDescription }) => (
-  <section className={styles.container}>
+const SectionContainer = ({ children, imgUrl, imgDescription, id }) => (
+  <section className={styles.container} id={id}>
     <div className={styles.texts}>{children}</div>
     <div className={styles.image}>
       <Image

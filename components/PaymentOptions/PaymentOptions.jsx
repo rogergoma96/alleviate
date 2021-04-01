@@ -3,7 +3,11 @@ import SectionContainer from "../SectionContainer/SectionContainer";
 import styles from "./PaymentOptions.module.scss";
 
 const PaymentOptions = () => (
-  <SectionContainer imgUrl="/images/img-desktop-07.jpg" imgDescription="">
+  <SectionContainer
+    id="PaymentOptions"
+    imgUrl="/images/img-desktop-07.jpg"
+    imgDescription=""
+  >
     <h3 className={`text-title-l ${styles.title}`}>Payment Options</h3>
     <h2 className={`text-title-s ${styles.section}`}>Cash & Checks</h2>
     <p className={`text-body ${styles.description}`}>

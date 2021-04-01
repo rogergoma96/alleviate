@@ -3,7 +3,11 @@ import SectionContainer from "../SectionContainer/SectionContainer";
 import styles from "./PostConstruction.module.scss";
 
 const PostConstruction = () => (
-  <SectionContainer imgUrl="/images/img_02.jpg" imgDescription="">
+  <SectionContainer
+    id="PostConstruction"
+    imgUrl="/images/img_02.jpg"
+    imgDescription=""
+  >
     <h2 className={`text-title-s ${styles.title}`}>
       Post Construction & Remodeling Cleaning
     </h2>

@@ -16,7 +16,11 @@ const DaysAndTime = () => {
   ]);
 
   return (
-    <SectionContainer imgUrl="/images/img_06.jpg" imgDescription="">
+    <SectionContainer
+      id="DaysAndTime"
+      imgUrl="/images/img_06.jpg"
+      imgDescription=""
+    >
       <h2 className={`text-title-l ${styles.title}`}>Where we service</h2>
       <ul className={styles.regions}>
         {regions.current.map((region) => (

@@ -16,9 +16,12 @@
     "dotenv": "8.2.0",
     "express": "4.17.1",
     "googleapis": "67.1.1",
+    "handlebars": "^4.7.7",
     "next": "10.0.7",
+    "nodemailer": "6.5.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-hook-form": "6.15.5",
     "sass": "1.32.8"
   },
   "devDependencies": {
