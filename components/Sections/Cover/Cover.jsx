@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "./cover.module.scss";
+import styles from "./Cover.module.scss";
 
 const Cover = ({ isMobile }) => (
   <section id="AboutUs" className={styles.container}>
