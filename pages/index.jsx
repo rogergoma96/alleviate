@@ -17,7 +17,7 @@ import MovingMobile from "../components/Sections/Moving/MovingMobile";
 import Menu from "../components/Menu/Menu";
 import PaymentOptionsDesktop from "../components/Sections/PaymentOptions/PaymentOptionsDesktop";
 import PaymentOptionsMobile from "../components/Sections/PaymentOptions/PaymentOptionsMobile";
-import Faqs from "../components/Sections/FAQs/Faqs";
+import Faqs from "../components/Sections/Faqs/Faqs";
 import Testimonials from "../components/Sections/Testimonials/Testimonials";
 import Booking from "../components/Sections/Booking/Booking";
 
