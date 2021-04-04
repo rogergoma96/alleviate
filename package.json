@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start"
+    "build": "next build"
   },
   "keywords": [],
   "author": "Bihotz studio",
