@@ -4,7 +4,7 @@ import MenuIcon from "../Commons/Icons/Menu";
 import CloseIcon from "../Commons/Icons/Close";
 
 import styles from "./Menu.module.scss";
-import Dropdown from "../Commons/DropDown/DropDown";
+import Dropdown from "../Commons/Dropdown/Dropdown";
 
 const Menu = () => {
   const [unfolded, setUnfolded] = useState(false);

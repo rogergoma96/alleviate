@@ -1,4 +1,4 @@
-import Dropdown from "../../Commons/DropDown/DropDown";
+import Dropdown from "../../Commons/Dropdown/Dropdown";
 import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
 
 import styles from "./AirBnbDesktop.module.scss";
