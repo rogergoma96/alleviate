@@ -46,7 +46,7 @@ const Booking = ({ isMobile }) => {
               <Image
                 src="/images/img-desktop-bubbles.jpg"
                 alt="Bubbles"
-                quality={100}
+                quality={70}
                 height="446"
                 width="840"
               />

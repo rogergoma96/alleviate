@@ -11,7 +11,7 @@ const SectionContainer = ({ children, imgUrl, imgDescription, id }) => (
         alt={imgDescription}
         layout="fill"
         objectFit="contain"
-        quality={100}
+        quality={70}
       />
     </div>
   </section>

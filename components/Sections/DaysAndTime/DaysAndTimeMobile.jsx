@@ -31,7 +31,7 @@ const DaysAndTimeMobile = () => {
           alt="Map"
           layout="fill"
           objectFit="contain"
-          quality={100}
+          quality={70}
         />
       </div>
       <h2 className={`text-title-l ${styles.title}`}>Days & Time</h2>

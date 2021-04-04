@@ -27,7 +27,7 @@ const Cover = ({ isMobile }) => (
         alt="Hanger with cleaning products"
         layout="fill"
         priority={true}
-        quality={100}
+        quality={70}
         objectFit="cover"
         objectPosition={isMobile ? "center" : "top"}
       />

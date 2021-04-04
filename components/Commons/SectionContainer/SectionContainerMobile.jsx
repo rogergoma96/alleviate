@@ -10,7 +10,7 @@ const SectionContainerMobile = ({ children, imgUrl, imgDescription, id }) => (
         alt={imgDescription}
         layout="fill"
         objectFit="contain"
-        quality={100}
+        quality={70}
       />
       <h2 className={`text-title-m ${styles.title}`}>{imgDescription}</h2>
     </div>
