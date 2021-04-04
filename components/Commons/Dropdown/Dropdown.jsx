@@ -16,7 +16,7 @@ const Dropdown = ({ children, label, className }) => {
         onClick={() => setUnfolded(!unfolded)}
       >
         {label}
-        <span className={styles.icon}>
+        <span className={styles.icon} aria-hidden="true">
           <Arrow />
         </span>
       </button>

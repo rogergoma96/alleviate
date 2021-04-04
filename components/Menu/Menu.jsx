@@ -19,6 +19,7 @@ const Menu = () => {
       <button
         className={styles.hamburger}
         onClick={() => setUnfolded(!unfolded)}
+        aria-label="Menu"
       >
         <MenuIcon />
       </button>
@@ -27,13 +28,16 @@ const Menu = () => {
           unfolded ? styles.unfolded : styles.folded
         }`}
       >
-        <button
-          className={styles.close}
-          type="button"
-          onClick={() => setUnfolded(false)}
-        >
-          <CloseIcon />
-        </button>
+        <li>
+          <button
+            className={styles.close}
+            type="button"
+            onClick={() => setUnfolded(false)}
+            aria-label="Close menu"
+          >
+            <CloseIcon />
+          </button>
+        </li>
         <li
           className={`text-action ${styles.section}`}
           onClick={() => handleClickSection("AboutUs")}

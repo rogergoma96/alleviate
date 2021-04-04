@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect, useState } from "react";
 
 import AirBnbDesktop from "../components/Sections/AirBnb/AirBnbDesktop";
@@ -16,7 +17,7 @@ import MovingMobile from "../components/Sections/Moving/MovingMobile";
 import Menu from "../components/Menu/Menu";
 import PaymentOptionsDesktop from "../components/Sections/PaymentOptions/PaymentOptionsDesktop";
 import PaymentOptionsMobile from "../components/Sections/PaymentOptions/PaymentOptionsMobile";
-import Faqs from "../components/Sections/Faqs/Faqs";
+import Faqs from "../components/Sections/FAQs/Faqs";
 import Testimonials from "../components/Sections/Testimonials/Testimonials";
 import Booking from "../components/Sections/Booking/Booking";
 
@@ -45,25 +46,45 @@ const Home = () => {
 
   if (isMobile) {
     return (
-      <div className="is-mobile">
-        <Menu />
-        <Cover isMobile={isMobile} />
-        <HomeAndApartmentMobile />
-        <PostConstructionMobile />
-        <AirBnbMobile />
-        <MovingMobile />
-        <DaysAndTimeMobile />
-        <Booking />
-        <PaymentOptionsMobile />
-        <ContactMobile />
-        <Testimonials />
-        <Faqs />
-      </div>
+      <>
+        <Head>
+          <title>Alleviate cleaning services</title>
+          <meta
+            name="description"
+            content="We understand that life gets in the way, so let us handle the cleaning. We offer services from AirBnB turnover to regular house cleaning. We pride ourselves in our attention to detail and ability to transform any house into a home."
+          />
+          <link rel="canonical" href="https://alleviate.vercel.app" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <div className="is-mobile">
+          <Menu />
+          <Cover isMobile={isMobile} />
+          <HomeAndApartmentMobile />
+          <PostConstructionMobile />
+          <AirBnbMobile />
+          <MovingMobile />
+          <DaysAndTimeMobile />
+          <Booking isMobile={isMobile} />
+          <PaymentOptionsMobile />
+          <ContactMobile />
+          <Testimonials />
+          <Faqs />
+        </div>
+      </>
     );
   }
 
   return (
     <>
+      <Head>
+        <title>Alleviate cleaning services</title>
+        <meta
+          name="description"
+          content="We understand that life gets in the way, so let us handle the cleaning. We offer services from AirBnB turnover to regular house cleaning. We pride ourselves in our attention to detail and ability to transform any house into a home."
+        />
+        <link rel="canonical" href="https://alleviate.vercel.app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Menu />
       <Cover />
       <HomeAndApartmentDesktop />

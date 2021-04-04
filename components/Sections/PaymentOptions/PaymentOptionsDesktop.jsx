@@ -5,18 +5,18 @@ import styles from "./PaymentOptionsDesktop.module.scss";
 const PaymentOptionsDesktop = () => (
   <SectionContainer
     id="PaymentOptions"
-    imgUrl="/images/img-desktop-07.jpg"
-    imgDescription=""
+    imgUrl="/images/img-desktop-08.jpg"
+    imgDescription="Payment Options"
   >
-    <h3 className={`text-title-l ${styles.title}`}>Payment Options</h3>
-    <h2 className={`text-title-s ${styles.section}`}>Cash & Checks</h2>
+    <h2 className={`text-title-l ${styles.title}`}>Payment Options</h2>
+    <h3 className={`text-title-s ${styles.section}`}>Cash & Checks</h3>
     <p className={`text-body ${styles.description}`}>
       Please hand cash and checks to cleaners in an envelope with your name,
       address, and date on it. Checks should be made out to Alleviate Cleaning
       Service. If you are not home you may leave the payment on the kitchen
       counter.
     </p>
-    <h2 className={`text-title-s ${styles.section}`}>Mobile Payment</h2>
+    <h3 className={`text-title-s ${styles.section}`}>Mobile Payment</h3>
     <p className={`text-body ${styles.description}`}>
       We offer payment through mobile payment services: Venmo, Cashapp, and
       Zelle. When sending payment please include your first and last name as

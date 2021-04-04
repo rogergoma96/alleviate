@@ -26,3 +26,8 @@
     cursor: initial;
   }
 }
+.is-mobile {
+  .btn-primary {
+    max-width: none;
+  }
+}

@@ -21,10 +21,20 @@ const ContactMobile = () => (
     </p>
     <p className={`text-subtitle ${styles.contact}`}>FOLLOW US ON</p>
     <div className={styles.icons}>
-      <a href="" target="_blank" className={styles.icon}>
+      <a
+        href="https://www.instagram.com/alleviatecleaningservice/?igshid=d7kl7ryeqj3n"
+        target="_blank"
+        className={styles.icon}
+        rel="noopener noreferrer"
+      >
         <InstagramIcon />
       </a>
-      <a href="" target="_blank" className={styles.icon}>
+      <a
+        href="https://www.facebook.com/Alleviate-Cleaning-Service-109135237891483/"
+        target="_blank"
+        className={styles.icon}
+        rel="noopener noreferrer"
+      >
         <FacebookIcon />
       </a>
     </div>

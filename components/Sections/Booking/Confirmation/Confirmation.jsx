@@ -4,9 +4,18 @@ import styles from "./Confirmation.module.scss";
 const Confirmation = ({ data, onClose }) => {
   return (
     <>
-      <div className={styles.veil} role="button" onClick={onClose} />
+      <div
+        className={styles.veil}
+        role="button"
+        onClick={onClose}
+        aria-label="Close modal"
+      />
       <div className={styles.container}>
-        <button className={styles.close} onClick={onClose}>
+        <button
+          className={styles.close}
+          onClick={onClose}
+          aria-label="Close modal"
+        >
           <CloseIcon />
         </button>
         <p className="text-title-s">

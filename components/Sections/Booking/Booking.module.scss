@@ -28,6 +28,22 @@
   max-width: 350px;
   display: flex;
   flex-direction: column;
+
+  .label {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+}
+
+.bubbles {
+  position: relative;
+  margin-top: 32px;
 }
 
 .info {
@@ -77,6 +93,7 @@
   .container {
     grid-template-columns: auto;
     margin-bottom: 64px;
+    padding-top: 88px;
     justify-items: start;
   }
 

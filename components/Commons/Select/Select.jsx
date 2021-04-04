@@ -35,6 +35,9 @@ const Select = ({
               tabIndex={0}
             />
             <p className={styles["input-text"]}>{placeholder}</p>
+            <label htmlFor={`${name}-placeholder`} className={styles.label}>
+              {placeholder}
+            </label>
           </div>
           {options.map((option, index) => (
             <div className={styles.value} key={option}>
@@ -48,12 +51,16 @@ const Select = ({
                 ref={register({ required })}
               />
               <p className={styles["input-text"]}>{option}</p>
+              <label htmlFor={`${name}-${index}`} className={styles.label}>
+                {option}
+              </label>
             </div>
           ))}
           <span
             className={`${styles.icon} ${
               unfolded ? styles["icon--rotate"] : ""
             }`}
+            aria-hidden="true"
           >
             <ArrowIcon />
           </span>

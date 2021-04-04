@@ -1,12 +1,14 @@
 import Image from "next/image";
+import Logo from "../../Commons/Icons/Logo";
 
 import styles from "./Cover.module.scss";
 
 const Cover = ({ isMobile }) => (
   <section id="AboutUs" className={styles.container}>
     <div className={styles.texts}>
-      <p className={`text-title-xxl ${styles.brand}`}>alleviate</p>
-      <h1 className={`text-title-m ${styles.subtitle}`}>cleaning services</h1>
+      <span className={styles.logo}>
+        <Logo />
+      </span>
       <p className={`text-body ${styles.text}`}>
         A home is where you feel safe and sound, where family and friends
         gather. At Alleviate Cleaning Service, we create a refreshing

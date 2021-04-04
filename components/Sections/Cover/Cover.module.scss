@@ -37,11 +37,15 @@
   }
 }
 
+.logo {
+  align-self: center;
+}
+
 :global(.is-mobile) {
   .texts {
     width: 100%;
     justify-content: flex-start;
-    padding: 76px 16px 32px;
+    padding: 16px 16px 32px;
   }
 
   .container {

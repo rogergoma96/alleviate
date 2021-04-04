@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Select from "../../Commons/Select/Select";
@@ -5,7 +6,7 @@ import styles from "./Booking.module.scss";
 import Confirmation from "./Confirmation/Confirmation";
 import { sendBookingEmail } from "../../../services";
 
-const Booking = () => {
+const Booking = ({ isMobile }) => {
   const [frequency, setFrequency] = useState(false);
   const [loading, setLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
@@ -40,13 +41,28 @@ const Booking = () => {
           <p className={`text-title-s ${styles.description}`}>
             Fill this form and we will get in contact with you …
           </p>
+          {!isMobile && (
+            <div className={styles.bubbles}>
+              <Image
+                src="/images/img-desktop-bubbles.jpg"
+                alt="Bubbles"
+                quality={100}
+                height="446"
+                width="840"
+              />
+            </div>
+          )}
         </div>
         <form className={styles.form} onSubmit={handleSubmit(processForm)}>
+          <label className={styles.label} htmlFor="name">
+            First name
+          </label>
           <input
             type="text"
             placeholder="First name *"
             className={`input ${styles.input}`}
             name="name"
+            id="name"
             ref={register({ required: true })}
           />
           {!errors.name && <span className={styles.separator} />}
@@ -55,11 +71,15 @@ const Booking = () => {
               This is a required field.
             </p>
           )}
+          <label className={styles.label} htmlFor="lastName">
+            Last name
+          </label>
           <input
             type="text"
             placeholder="Last name *"
             className={`input ${styles.input}`}
             name="lastName"
+            id="lastName"
             ref={register({ required: true })}
           />
           {!errors.lastName && <span className={styles.separator} />}
@@ -68,11 +88,15 @@ const Booking = () => {
               This is a required field.
             </p>
           )}
+          <label className={styles.label} htmlFor="email">
+            Last name
+          </label>
           <input
             type="email"
             placeholder="Email *"
             className={`input ${styles.input}`}
             name="email"
+            id="email"
             ref={register({ required: true })}
           />
           {!errors.email && <span className={styles.separator} />}
@@ -81,11 +105,15 @@ const Booking = () => {
               This is a required field.
             </p>
           )}
+          <label className={styles.label} htmlFor="phone">
+            Phone number
+          </label>
           <input
             type="tel"
             placeholder="Phone number *"
             className={`input ${styles.input}`}
             name="phone"
+            id="phone"
             ref={register({ required: true })}
           />
           {!errors.phone && <span className={styles.separator} />}
@@ -94,11 +122,15 @@ const Booking = () => {
               This is a required field.
             </p>
           )}
+          <label className={styles.label} htmlFor="address">
+            Address
+          </label>
           <input
             type="text"
             placeholder="Address *"
             className={`input ${styles.input}`}
             name="address"
+            id="address"
             ref={register({ required: true })}
           />
           {!errors.address && <span className={styles.separator} />}
@@ -176,11 +208,15 @@ const Booking = () => {
               )}
             </>
           )}
+          <label className={styles.label} htmlFor="date">
+            Date
+          </label>
           <input
             type="text"
             placeholder="Date  ( mm / dd / yyyy ) *"
             className={`input ${styles.input}`}
             name="date"
+            id="date"
             ref={register({ required: true })}
           />
           {!errors.date && <span className={styles.separator} />}
@@ -192,17 +228,21 @@ const Booking = () => {
           <p className={`text-body ${styles.text}`}>
             Are there any special requests, accommodations?
           </p>
+          <label className={styles.label} htmlFor="specialRequests">
+            Are there any special requests, accommodations?
+          </label>
           <textarea
             className={styles["special-requests"]}
             name="specialRequests"
             rows="15"
+            id="specialRequests"
             ref={register({ required: false })}
           />
           <button className="btn-primary" type="submit" disabled={loading}>
             {!loading ? (
               "Send your booking request"
             ) : (
-              <div className={styles.spinner} />
+              <div className={styles.spinner} aria-label="Loading" />
             )}
           </button>
         </form>
