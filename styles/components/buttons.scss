@@ -1,8 +1,8 @@
 @use '../settings/colors.scss';
 
 .btn-primary {
-  background-color: $color-white;
-  border: 1px solid $color-blue-600;
+  background-color: $color-blue-300;
+  border: 1px solid $color-blue-300;
   color: $color-black;
   cursor: pointer;
   display: flex;
@@ -14,7 +14,7 @@
   font-weight: $font-bold;
   line-height: $line-height-dsk-action;
   max-width: 350px;
-  padding: 16px;
+  padding: 8px;
   width: 100%;
 
   &:hover {

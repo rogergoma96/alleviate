@@ -1,0 +1,35 @@
+.dropdown {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  width: 100%;
+  line-height: 32px;
+  text-align: left;
+
+  .icon {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease-in-out;
+    margin-left: 8px;
+    line-height: 0;
+  }
+
+  &--selected {
+    .icon {
+      transform: rotate(0deg);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+}
+
+:global(.is-mobile) {
+  .dropdown {
+    line-height: 24px;
+    margin: 4px 0;
+  }
+}

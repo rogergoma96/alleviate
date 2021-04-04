@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Link from "next/link";
-import MenuIcon from "../Icons/Menu";
-import CloseIcon from "../Icons/Close";
+import MenuIcon from "../Commons/Icons/Menu";
+import CloseIcon from "../Commons/Icons/Close";
 
 import styles from "./Menu.module.scss";
-import Dropdown from "../DropDown/DropDown";
+import Dropdown from "../Commons/DropDown/DropDown";
 
 const Menu = () => {
   const [unfolded, setUnfolded] = useState(false);
 
-  const handleClickSection = (id) => {
+  const handleClickSection = () => {
     window.scrollTo(0, 0);
     setUnfolded(!unfolded);
   };
@@ -102,12 +102,28 @@ const Menu = () => {
             Booking
           </li>
         </Link>
+        <Link href="/#PaymentOptions">
+          <li
+            className={`text-action ${styles.section}`}
+            onClick={() => setUnfolded(false)}
+          >
+            Payment options
+          </li>
+        </Link>
         <Link href="/#Contact">
           <li
             className={`text-action ${styles.section}`}
             onClick={() => setUnfolded(false)}
           >
             Contact
+          </li>
+        </Link>
+        <Link href="/#Testimonials">
+          <li
+            className={`text-action ${styles.section}`}
+            onClick={() => setUnfolded(false)}
+          >
+            Testimonials
           </li>
         </Link>
         <Link href="/#FAQs">

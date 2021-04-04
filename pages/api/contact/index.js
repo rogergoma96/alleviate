@@ -29,6 +29,6 @@ const mailer = (data) => {
 };
 
 export default async (req, res) => {
-  const mailerRes = await mailer(req.query);
+  const mailerRes = await mailer(req.body);
   res.send(mailerRes);
 };

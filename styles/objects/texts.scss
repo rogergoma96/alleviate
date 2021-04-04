@@ -50,6 +50,7 @@
   line-height: $line-height-dsk-title-m;
 
   @media (max-width: $breakpoint-mbl) {
+    font-weight: $font-bold;
     font-size: $font-size-mbl-title-m;
     line-height: $line-height-mbl-title-m;
   }

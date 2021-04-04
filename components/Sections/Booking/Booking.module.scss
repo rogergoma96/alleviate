@@ -1,0 +1,105 @@
+@import '../../../styles/settings/colors.scss';
+@import '../../../styles/tools/mixins.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: end;
+  justify-content: space-between;
+}
+
+.texts {
+  position: sticky;
+  top: 0;
+  right: 0;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  padding: 78px 2.5rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.form {
+  margin: 78px 80px 96px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  margin: 8px 8px 24px;
+  color: $color-gray-900;
+}
+
+.special-requests {
+  outline: none;
+  border: 1px solid $color-gray-600;
+  resize: none;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+
+  &:focus {
+    border-color: $color-gray-900;
+  }
+}
+
+.text {
+  margin-top: 12px;
+}
+
+.separator {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.error {
+  margin-top: 8px;
+  margin-left: 8px;
+  margin-bottom: 24px;
+  color: $color-red;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  border: px2Rem(3) solid $transparency-black-soft;
+  border-radius: 50%;
+  border-left-color: transparent;
+  height: px2Rem(16);
+  width: px2Rem(16);
+}
+
+:global(.is-mobile) {
+  .container {
+    grid-template-columns: auto;
+    margin-bottom: 64px;
+    justify-items: start;
+  }
+
+  .texts {
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 0 16px 0;
+  }
+
+  .form {
+    margin: 32px 16px;
+    max-width: none;
+  }
+  
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

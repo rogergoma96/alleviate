@@ -1,1 +1,0 @@
-GET http://localhost:3000/api/timeslots?year=2022&month=02&day=01

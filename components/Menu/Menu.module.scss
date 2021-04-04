@@ -23,7 +23,7 @@
   background-color: $color-white;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 64px);
   position: fixed;
   padding: 32px 40px;
   margin: 0;
@@ -33,6 +33,7 @@
   z-index: 3;
   transform: translate(-100%, 0);
   width: 224px;
+  overflow: auto;
 }
 
 .section {
@@ -83,4 +84,11 @@
   padding: 0;
   margin-bottom: 18px;
   width: fit-content;
+}
+
+:global(.is-mobile) {
+  .header,
+  .container {
+    padding: 32px 16px;
+  }
 }

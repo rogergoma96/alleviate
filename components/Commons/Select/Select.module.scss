@@ -1,0 +1,94 @@
+@import '../../../styles/settings/colors.scss';
+@import '../../../styles/settings/fonts.scss';
+@import '../../../styles/tools/mixins.scss';
+
+.select {
+  position: relative;
+  font-family: $font-family-nunito-sans;
+  font-size: px2Rem(14);
+  color: $color-black;
+  font-weight: $font-regular;
+  line-height: px2Rem(21);
+  border-bottom: 1px solid $color-gray-600;
+  padding: 8px;
+}
+
+.selected {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.icon {
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(180deg);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &--rotate {
+    svg {
+      transform: rotate(0deg);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+}
+
+.placeholder {
+  display: flex;
+  color: $color-gray-600;
+  outline: none;
+}
+
+.value {
+  display: flex;
+}
+
+.input {
+  opacity: 0;
+  position: absolute;
+  
+  &:checked + .input-text {
+    display: block;
+  }
+}
+
+.input-text {
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  margin: 9px 0 0;
+  border: 1px solid $color-black;
+  z-index: 1000;
+}
+
+.option {
+  display: block;
+  padding: 16px;
+  background-color: $color-white;
+  cursor: pointer;
+  
+  &:hover,
+  &:focus {
+    color: $color-gray-900;
+  }
+}
+
+.veil {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

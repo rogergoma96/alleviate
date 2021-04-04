@@ -1,1 +1,0 @@
-GET http://localhost:3000/api/days?year=2022&month=02
