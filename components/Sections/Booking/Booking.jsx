@@ -177,8 +177,8 @@ const Booking = () => {
             </>
           )}
           <input
-            type="date"
-            placeholder="Date *"
+            type="text"
+            placeholder="Date  ( mm / dd / yyyy ) *"
             className={`input ${styles.input}`}
             name="date"
             ref={register({ required: true })}
