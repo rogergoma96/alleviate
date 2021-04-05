@@ -6,7 +6,6 @@ const mailer = (data) => {
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
-    requireTLS: true,
     auth: {
       user: "roger.goma96@gmail.com",
       pass: "independencia",
