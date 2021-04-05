@@ -1,16 +1,16 @@
 const emailBooking = (data) => `
-  <p>Name: ${data.name}</p>
-  <p>Lastname: ${data.lastName}</p>
-  <p>Email: ${data.email}</p>
-  <p>Address: ${data.address}</p>
-  <p>Phone: ${data.phone}</p>
-  <p>Date: ${data.date}</p>
-  <p>Cleaning service: ${data.cleaningService}</p>
-  <p>Add-Ons: ${data.addOns}</p>
-  ${data.frequency ? `<p>Ferquency: ${data.frequency}</p>` : ""}
+  <p><b><b>Name:</b></b> ${data.name}</p>
+  <p><b>Lastname:</b> ${data.lastName}</p>
+  <p><b>Email:</b> ${data.email}</p>
+  <p><b>Address:</b> ${data.address}</p>
+  <p><b>Phone:</b> ${data.phone}</p>
+  <p><b>Date:</b> ${data.date}</p>
+  <p><b>Cleaning service:</b> ${data.cleaningService}</p>
+  <p><b>Add-Ons:</b> ${data.addOns}</p>
+  ${data.frequency ? `<p><b>Ferquency:</b> ${data.frequency}</p>` : ""}
   ${
     data.specialRequests
-      ? `<p>Special requests: ${data.specialRequests}</p>`
+      ? `<p><b>Special requests:</b> ${data.specialRequests}</p>`
       : ""
   }
 `;

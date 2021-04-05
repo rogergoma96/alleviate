@@ -1,33 +1,31 @@
-import nodemailer from "nodemailer";
+const sgMail = require("@sendgrid/mail");
 import emailBooking from "../../../components/Emails/booking";
 
-const mailer = (data) => {
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: {
-      user: "roger.goma96@gmail.com",
-      pass: "independencia",
-    },
-  });
+const mailer = async (data) => {
+  sgMail.setApiKey(process.env.EMAIL_API_KEY);
 
-  const mailOptions = {
-    from: "noreply@domain.com",
+  const msg = {
     to: "roger.goma96@gmail.com",
-    subject: "New book from alleviate.com",
-    text: "New book",
+    from: "bookingalleviate@gmail.com",
+    subject: "New booking from alleviateclaningservice.com",
     html: emailBooking(data),
   };
 
   return new Promise((resolve, reject) => {
-    transporter.sendMail(mailOptions, (error, info) =>
-      error ? reject(error) : resolve(info)
-    );
+    sgMail
+      .send(msg)
+      .then((response) => {
+        resolve(response[0]);
+      })
+      .catch((error) => {
+        reject(error);
+      });
   });
 };
 
 export default async (req, res) => {
-  const mailerRes = await mailer(req.body);
-  res.send(mailerRes);
+  if (req.method === "POST") {
+    const mailerRes = await mailer(req.body);
+    res.send(mailerRes);
+  }
 };

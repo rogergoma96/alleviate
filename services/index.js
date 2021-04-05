@@ -9,7 +9,10 @@ const sendBookingEmail = async (data) => {
     },
     body: JSON.stringify(data),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      return res.json();
+    })
     .catch((data) => console.log(data));
 
   return response;

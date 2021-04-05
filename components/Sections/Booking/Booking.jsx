@@ -18,7 +18,7 @@ const Booking = ({ isMobile }) => {
     const dataPromise = sendBookingEmail(data);
     const response = await dataPromise;
 
-    if (response) {
+    if (response.statusCode === 202) {
       e.target.reset();
       setConfirmation(true);
       setLoading(false);
