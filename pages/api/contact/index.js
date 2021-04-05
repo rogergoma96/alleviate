@@ -8,8 +8,8 @@ const mailer = (data) => {
     secure: false,
     requireTLS: true,
     auth: {
-      user: "roger.goma96@gmail.com",
-      pass: "independencia",
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
     },
   });
 
