@@ -6,7 +6,7 @@ const mailer = async (data) => {
 
   const msg = {
     to: "roger.goma96@gmail.com",
-    from: "bookingalleviate@gmail.com",
+    from: "alleviatecleaningservice@gmail.com",
     subject: "New booking from alleviateclaningservice.com",
     html: emailBooking(data),
   };
