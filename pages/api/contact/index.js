@@ -5,8 +5,8 @@ const mailer = async (data) => {
   sgMail.setApiKey(process.env.EMAIL_API_KEY);
 
   const msg = {
-    to: "roger.goma96@gmail.com",
-    from: "alleviatecleaningservice@gmail.com",
+    to: "alleviatecleaningservice@gmail.com",
+    from: "bookingalleviate@gmail.com",
     subject: "New booking from alleviateclaningservice.com",
     html: emailBooking(data),
   };
