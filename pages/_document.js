@@ -10,6 +10,13 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="canonical" href="https://alleviatecleaningservice.com" />
+          <link
+            rel="preload"
+            href="/fonts/NunitoSans-Regular.woff2"
+            as="font"
+            crossOrigin=""
+          />
           <link
             rel="apple-touch-icon"
             sizes="180x180"

@@ -44,36 +44,6 @@ const Home = () => {
     return null;
   }
 
-  if (isMobile) {
-    return (
-      <>
-        <Head>
-          <title>Alleviate cleaning services</title>
-          <meta
-            name="description"
-            content="We understand that life gets in the way, so let us handle the cleaning. We offer services from AirBnB turnover to regular house cleaning. We pride ourselves in our attention to detail and ability to transform any house into a home."
-          />
-          <link rel="canonical" href="https://alleviate.vercel.app" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <div className="is-mobile">
-          <Menu />
-          <Cover isMobile={isMobile} />
-          <HomeAndApartmentMobile />
-          <PostConstructionMobile />
-          <AirBnbMobile />
-          <MovingMobile />
-          <DaysAndTimeMobile />
-          <Booking isMobile={isMobile} />
-          <PaymentOptionsMobile />
-          <ContactMobile />
-          <Testimonials />
-          <Faqs />
-        </div>
-      </>
-    );
-  }
-
   return (
     <>
       <Head>
@@ -82,21 +52,21 @@ const Home = () => {
           name="description"
           content="We understand that life gets in the way, so let us handle the cleaning. We offer services from AirBnB turnover to regular house cleaning. We pride ourselves in our attention to detail and ability to transform any house into a home."
         />
-        <link rel="canonical" href="https://alleviate.vercel.app" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Menu />
-      <Cover />
-      <HomeAndApartmentDesktop />
-      <PostConstructionDesktop />
-      <AirBnbDesktop />
-      <MovingDesktop />
-      <DaysAndTimeDesktop />
-      <Booking />
-      <PaymentOptionsDesktop />
-      <ContactDesktop />
-      <Testimonials />
-      <Faqs />
+      <div className={`${isMobile ? "is-mobile" : ""}`}>
+        <Menu />
+        <Cover isMobile={isMobile} />
+        {isMobile ? <HomeAndApartmentMobile /> : <HomeAndApartmentDesktop />}
+        {isMobile ? <PostConstructionMobile /> : <PostConstructionDesktop />}
+        {isMobile ? <AirBnbMobile /> : <AirBnbDesktop />}
+        {isMobile ? <MovingMobile /> : <MovingDesktop />}
+        {isMobile ? <DaysAndTimeMobile /> : <DaysAndTimeDesktop />}
+        <Booking isMobile={isMobile} />
+        {isMobile ? <PaymentOptionsMobile /> : <PaymentOptionsDesktop />}
+        {isMobile ? <ContactMobile /> : <ContactDesktop />}
+        <Testimonials />
+        <Faqs />
+      </div>
     </>
   );
 };

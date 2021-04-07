@@ -27,13 +27,13 @@
   position: relative;
   cursor: pointer;
   outline: none;
-  padding: 8px;
+  padding: 20px 8px 8px;
 }
 
 .icon {
   svg {
     position: absolute;
-    top: 8px;
+    top: 18px;
     right: 0;
     transform: rotate(180deg);
     transition: transform 0.2s ease-in-out;
