@@ -13,10 +13,10 @@ const PostConstructionMobile = () => {
       imgDescription="Post Construction & Remodeling Cleaning"
     >
       <p className={`text-body ${styles.description}`}>
-        When the construction of a house has finished and the dust has settled
+        When the construction of a house has finished & the dust has settled
         (literally) there is a lot of debris that must be cleaned to prepare the
-        home for showings and it’s owner. We clean from the ceiling to the floor
-        and everything in between.
+        home for showings & it’s owner. We clean from the ceiling to the floor &
+        everything in between.
       </p>
       <p className="text-body">Remove any post construction trash.</p>
       <p className="text-body">Clean dirt off of walls and baseboards.</p>

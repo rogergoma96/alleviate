@@ -25,13 +25,12 @@ const PaymentOptionsDesktop = () => (
     <div className={styles.methods}>
       <p className="text-subtitle">VENMO: TBD</p>
       <p className="text-subtitle">CASHAPP: TBD</p>
-      <p className="text-subtitle">ZELLE: TBD</p>
     </div>
     <h2 className={`text-title-s ${styles.section}`}>Card Payment</h2>
     <p className={`text-body ${styles.description}`}>
-      If you would like to pay using a card, we will send you a quote via email.
-      This email will include a link “Square” to safely add your card
-      information into a secure source.
+      If you would like to pay using a card, we will send you an invoice via
+      email. This email will include a link to “Square” where you can safely add
+      your card information into a secure source.
     </p>
   </SectionContainer>
 );

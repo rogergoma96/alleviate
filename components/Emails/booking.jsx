@@ -4,10 +4,11 @@ const emailBooking = (data) => `
   <p><b>Email:</b> ${data.email}</p>
   <p><b>Address:</b> ${data.address}</p>
   <p><b>Phone:</b> ${data.phone}</p>
+  <p><b>How did you hear about us:</b> ${data.findUs}</p>
   <p><b>Date:</b> ${data.date}</p>
   <p><b>Cleaning service:</b> ${data.cleaningService}</p>
-  <p><b>Add-Ons:</b> ${data.addOns}</p>
   ${data.frequency ? `<p><b>Ferquency:</b> ${data.frequency}</p>` : ""}
+  <p><b>Add-Ons:</b> ${data.addOns}</p>
   ${
     data.specialRequests
       ? `<p><b>Special requests:</b> ${data.specialRequests}</p>`

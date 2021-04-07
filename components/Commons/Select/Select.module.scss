@@ -10,7 +10,6 @@
   font-weight: $font-regular;
   line-height: px2Rem(21);
   border-bottom: 1px solid $color-gray-600;
-  padding: 8px;
 }
 
 .label {
@@ -28,12 +27,13 @@
   position: relative;
   cursor: pointer;
   outline: none;
+  padding: 8px;
 }
 
 .icon {
   svg {
     position: absolute;
-    top: 0;
+    top: 8px;
     right: 0;
     transform: rotate(180deg);
     transition: transform 0.2s ease-in-out;
@@ -79,7 +79,7 @@
   width: 100%;
   padding: 0;
   list-style: none;
-  margin: 9px 0 0;
+  margin: 0;
   border: 1px solid $color-black;
   z-index: 1000;
 }

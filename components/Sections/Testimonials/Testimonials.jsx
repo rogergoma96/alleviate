@@ -14,7 +14,7 @@ const Testimonials = () => (
       <div className={styles.testimonial}>
         <p className="text-body-cormorant">
           “I was going to host a lot of family for my son's graduation so I did
-          deep clean and it was amazing. My house was spotless!
+          a deep clean and it was amazing. My house was spotless!
         </p>
         <p className="text-subtitle">– DELANEY</p>
       </div>
@@ -28,8 +28,8 @@ const Testimonials = () => (
       <div className={styles.testimonial}>
         <p className="text-body-cormorant">
           “I am extremely busy working and tending to my family so I went with
-          the bi-weekly clean. It’s been 2 months now and they have saved me so
-          a lot of time and energy”
+          the bi-weekly clean. It’s been 2 months now and they have saved me a
+          lot of time and energy”
         </p>
         <p className="text-subtitle">– LINDA</p>
       </div>

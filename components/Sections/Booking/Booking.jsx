@@ -140,6 +140,26 @@ const Booking = ({ isMobile }) => {
             </p>
           )}
           <Select
+            placeholder="How did you hear about us *"
+            options={[
+              "Referral",
+              "Instagram",
+              "Facebook",
+              "Nextdoor",
+              "Google",
+              "Other",
+            ]}
+            name="findUs"
+            register={register}
+            required
+          />
+          {!errors.findUs && <span className={styles.separator} />}
+          {errors.findUs && (
+            <p className={`text-body ${styles.error}`}>
+              This is a required field.
+            </p>
+          )}
+          <Select
             placeholder="Select a cleaning service *"
             options={[
               "Upkeep home & apartment",
@@ -162,24 +182,6 @@ const Booking = ({ isMobile }) => {
             For AirBnB turnover and Mov-In & Move Out a representative will call
             them for an accurate quote.
           </p>
-          <Select
-            placeholder="Add-Ons *"
-            options={[
-              "Clean inside the oven",
-              "Clean inside the fridge",
-              "Clean baseboards",
-              "Interior window cleaning",
-            ]}
-            name="addOns"
-            register={register}
-            required
-          />
-          {!errors.addOns && <span className={styles.separator} />}
-          {errors.addOns && (
-            <p className={`text-body ${styles.error}`}>
-              This is a required field.
-            </p>
-          )}
           {frequency && (
             <>
               <Select
@@ -207,6 +209,24 @@ const Booking = ({ isMobile }) => {
                 </p>
               )}
             </>
+          )}
+          <Select
+            placeholder="Add-Ons *"
+            options={[
+              "Clean inside the oven",
+              "Clean inside the fridge",
+              "Clean baseboards",
+              "Interior window cleaning",
+            ]}
+            name="addOns"
+            register={register}
+            required
+          />
+          {!errors.addOns && <span className={styles.separator} />}
+          {errors.addOns && (
+            <p className={`text-body ${styles.error}`}>
+              This is a required field.
+            </p>
           )}
           <label className={styles.label} htmlFor="date">
             Date

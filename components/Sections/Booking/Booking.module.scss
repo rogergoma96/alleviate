@@ -1,4 +1,5 @@
 @import '../../../styles/settings/colors.scss';
+@import '../../../styles/settings/typography.scss';
 @import '../../../styles/tools/mixins.scss';
 
 .container {
@@ -58,6 +59,7 @@
   margin-top: 16px;
   margin-bottom: 24px;
   width: 100%;
+  font-size: $font-size-dsk-body;
 
   &:focus {
     border-color: $color-gray-900;
@@ -109,6 +111,9 @@
     max-width: none;
   }
   
+  .special-requests {
+    font-size: $font-size-mbl-body;
+  }
 }
 
 @keyframes spin {

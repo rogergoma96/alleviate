@@ -43,8 +43,8 @@ const Faqs = () => (
       <p className={`text-body ${styles.answer}`}>
         We have various payment options. You can give the cleaners cash or a
         check with your name and address on the envelope. You can also pay
-        through Zelle, CashApp, and Venmo with the money amount with your name
-        and address.
+        through CashApp and Venmo with the money amount with your name and
+        address.
       </p>
     </Dropdown>
     <div className={styles.separator} />
@@ -88,14 +88,14 @@ const Faqs = () => (
     >
       <p className={`text-body ${styles.answer}`}>
         We respect every home we enter. If we damage or break something, we will
-        do the right thing and try to fix or replace the object.
+        do the right thing and try to fix or replace the object. Additionally,
+        each cleaner is fully insured and claims will be filed accordingly.
       </p>
     </Dropdown>
     <div className={styles.separator} />
     <Dropdown label="What do you not clean?" className="text-title-s">
       <p className={`text-body ${styles.answer}`}>We do not:</p>
-      <p className="text-body">Do laundry</p>
-      <p className="text-body">Wash dishes</p>
+      <p className="text-body">- Do laundry</p>
     </Dropdown>
     <div className={styles.separator} />
     <Dropdown
