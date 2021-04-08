@@ -1,20 +1,31 @@
 import { useRouter } from "next/router";
 import Dropdown from "../../Commons/Dropdown/Dropdown";
-import SectionContainerMobile from "../../Commons/SectionContainer/SectionContainerMobile";
+import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
 
-import styles from "./HomeAndApartmentDesktop.module.scss";
+import styles from "./HomeAndApartment.module.scss";
 
-const HomeAndApartmentMobile = () => {
+const HomeAndApartment = ({ isMobile }) => {
   const router = useRouter();
 
   return (
     <>
-      <h3 className={`text-title-l ${styles.title}`}>Services</h3>
-      <SectionContainerMobile
+      {isMobile && <h3 className={`text-title-l ${styles.title}`}>Services</h3>}
+      <SectionContainer
+        isMobile={isMobile}
         id="HomeAndApartment"
-        imgUrl="/images/img-mobile-02.jpg"
+        imgUrl={`/images/${
+          isMobile ? "img-mobile-02.jpg" : "img-desktop-03.jpg"
+        }`}
         imgDescription="Home & Apartment Cleaning"
       >
+        {!isMobile && (
+          <>
+            <h2 className={`text-title-l ${styles.title}`}>Services</h2>
+            <h3 className={`text-title-s ${styles.section}`}>
+              Home & Apartment Cleaning
+            </h3>
+          </>
+        )}
         <p className={`text-body ${styles.description}`}>
           This service offers regular house upkeep cleaning (one-time, weekly,
           biweekly, monthly) and deep cleaning which cleans the floor, ceiling,
@@ -127,9 +138,9 @@ const HomeAndApartmentMobile = () => {
         >
           Book this service
         </button>
-      </SectionContainerMobile>
+      </SectionContainer>
     </>
   );
 };
 
-export default HomeAndApartmentMobile;
+export default HomeAndApartment;

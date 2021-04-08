@@ -1,17 +1,25 @@
 import { useRouter } from "next/router";
-import SectionContainerMobile from "../../Commons/SectionContainer/SectionContainerMobile";
+import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
 
-import styles from "./PostConstructionDesktop.module.scss";
+import styles from "./PostConstruction.module.scss";
 
-const PostConstructionMobile = () => {
+const PostConstruction = ({ isMobile }) => {
   const router = useRouter();
 
   return (
-    <SectionContainerMobile
+    <SectionContainer
+      isMobile={isMobile}
       id="PostConstruction"
-      imgUrl="/images/img-mobile-03.jpg"
+      imgUrl={`/images/${
+        isMobile ? "img-mobile-03.jpg" : "img-desktop-02.jpg"
+      }`}
       imgDescription="Post Construction & Remodeling Cleaning"
     >
+      {!isMobile && (
+        <h2 className={`text-title-s ${styles.title}`}>
+          Post Construction & Remodeling Cleaning
+        </h2>
+      )}
       <p className={`text-body ${styles.description}`}>
         When the construction of a house has finished & the dust has settled
         (literally) there is a lot of debris that must be cleaned to prepare the
@@ -31,8 +39,8 @@ const PostConstructionMobile = () => {
       >
         Book this service
       </button>
-    </SectionContainerMobile>
+    </SectionContainer>
   );
 };
 
-export default PostConstructionMobile;
+export default PostConstruction;

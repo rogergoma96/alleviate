@@ -2,15 +2,18 @@ import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
 import InstagramIcon from "../../Commons/Icons/Instagram";
 import FacebookIcon from "../../Commons/Icons/Facebook";
 
-import styles from "./ContactDesktop.module.scss";
+import styles from "./Contact.module.scss";
 
-const ContactDesktop = () => (
+const Contact = ({ isMobile }) => (
   <SectionContainer
+    isMobile={isMobile}
     id="Contact"
-    imgUrl="/images/img-desktop-07.jpg"
-    imgDescription=""
+    imgUrl={`/images/${isMobile ? "img-mobile-08.jpg" : "img-desktop-07.jpg"}`}
+    imgDescription="Contact Information"
   >
-    <h2 className={`text-title-l ${styles.title}`}>Contact Information</h2>
+    {!isMobile && (
+      <h2 className={`text-title-l ${styles.title}`}>Contact Information</h2>
+    )}
     <p className={`text-title-s ${styles.subtitle}`}>
       If you have any questions, comments, or concerns contact us at any time!
     </p>
@@ -42,4 +45,4 @@ const ContactDesktop = () => (
   </SectionContainer>
 );
 
-export default ContactDesktop;
+export default Contact;

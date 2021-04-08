@@ -1,22 +1,15 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
-import AirBnbDesktop from "../components/Sections/AirBnb/AirBnbDesktop";
-import AirBnbMobile from "../components/Sections/AirBnb/AirBnbMobile";
-import DaysAndTimeDesktop from "../components/Sections/DaysAndTime/DaysAndTimeDesktop";
-import DaysAndTimeMobile from "../components/Sections/DaysAndTime/DaysAndTimeMobile";
-import ContactDesktop from "../components/Sections/Contact/ContactDesktop";
-import ContactMobile from "../components/Sections/Contact/ContactMobile";
+import AirBnb from "../components/Sections/AirBnb/AirBnb";
+import DaysAndTime from "../components/Sections/DaysAndTime/DaysAndTime";
+import Contact from "../components/Sections/Contact/Contact";
 import Cover from "../components/Sections/Cover/Cover";
-import HomeAndApartmentDesktop from "../components/Sections/HomeAndApartment/HomeAndApartmentDesktop";
-import HomeAndApartmentMobile from "../components/Sections/HomeAndApartment/HomeAndApartmentMobile";
-import PostConstructionDesktop from "../components/Sections/PostConstruction/PostConstructionDesktop";
-import PostConstructionMobile from "../components/Sections/PostConstruction/PostConstructionMobile";
-import MovingDesktop from "../components/Sections/Moving/MovingDesktop";
-import MovingMobile from "../components/Sections/Moving/MovingMobile";
+import HomeAndApartment from "../components/Sections/HomeAndApartment/HomeAndApartment";
+import PostConstruction from "../components/Sections/PostConstruction/PostConstruction";
+import Moving from "../components/Sections/Moving/Moving";
 import Menu from "../components/Menu/Menu";
-import PaymentOptionsDesktop from "../components/Sections/PaymentOptions/PaymentOptionsDesktop";
-import PaymentOptionsMobile from "../components/Sections/PaymentOptions/PaymentOptionsMobile";
+import PaymentOptions from "../components/Sections/PaymentOptions/PaymentOptions";
 import Faqs from "../components/Sections/Faqs/Faqs";
 import Testimonials from "../components/Sections/Testimonials/Testimonials";
 import Booking from "../components/Sections/Booking/Booking";
@@ -56,14 +49,14 @@ const Home = () => {
       <div className={`${isMobile ? "is-mobile" : ""}`}>
         <Menu />
         <Cover isMobile={isMobile} />
-        {isMobile ? <HomeAndApartmentMobile /> : <HomeAndApartmentDesktop />}
-        {isMobile ? <PostConstructionMobile /> : <PostConstructionDesktop />}
-        {isMobile ? <AirBnbMobile /> : <AirBnbDesktop />}
-        {isMobile ? <MovingMobile /> : <MovingDesktop />}
-        {isMobile ? <DaysAndTimeMobile /> : <DaysAndTimeDesktop />}
+        <HomeAndApartment isMobile={isMobile} />
+        <PostConstruction isMobile={isMobile} />
+        <AirBnb isMobile={isMobile} />
+        <Moving isMobile={isMobile} />
+        <DaysAndTime isMobile={isMobile} />
         <Booking isMobile={isMobile} />
-        {isMobile ? <PaymentOptionsMobile /> : <PaymentOptionsDesktop />}
-        {isMobile ? <ContactMobile /> : <ContactDesktop />}
+        <PaymentOptions isMobile={isMobile} />
+        <Contact isMobile={isMobile} />
         <Testimonials />
         <Faqs />
       </div>

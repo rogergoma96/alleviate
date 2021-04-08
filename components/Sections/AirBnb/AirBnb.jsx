@@ -2,18 +2,21 @@ import { useRouter } from "next/router";
 import Dropdown from "../../Commons/Dropdown/Dropdown";
 import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
 
-import styles from "./AirBnbDesktop.module.scss";
+import styles from "./AirBnb.module.scss";
 
-const AirBnbDesktop = () => {
+const AirBnb = ({ isMobile }) => {
   const router = useRouter();
 
   return (
     <SectionContainer
+      isMobile={isMobile}
       id="AirBnB"
-      imgUrl="/images/img-desktop-04.jpg"
-      imgDescription=""
+      imgUrl={`/images/${
+        isMobile ? "img-mobile-04.jpg" : "img-desktop-04.jpg"
+      }`}
+      imgDescription="AirBnB Turnover"
     >
-      <h3 className="text-title-s">AirBnB Turnover</h3>
+      {!isMobile && <h3 className="text-title-s">AirBnB Turnover</h3>}
       <p className="text-body">
         Whenever people go on vacation, the kickstart to their experience is the
         arrival to their AirBnB. An AirBnB is more than just a temporary
@@ -80,4 +83,4 @@ const AirBnbDesktop = () => {
   );
 };
 
-export default AirBnbDesktop;
+export default AirBnb;

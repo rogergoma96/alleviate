@@ -1,18 +1,24 @@
 import { useRouter } from "next/router";
 import Dropdown from "../../Commons/Dropdown/Dropdown";
-import SectionContainerMobile from "../../Commons/SectionContainer/SectionContainerMobile";
+import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
 
-import styles from "./MovingDesktop.module.scss";
+import styles from "./Moving.module.scss";
 
-const MovingMobile = () => {
+const Moving = ({ isMobile }) => {
   const router = useRouter();
 
   return (
-    <SectionContainerMobile
+    <SectionContainer
+      isMobile={isMobile}
       id="Moving"
-      imgUrl="/images/img-mobile-05.jpg"
+      imgUrl={`/images/${
+        isMobile ? "img-mobile-05.jpg" : "img-desktop-05.jpg"
+      }`}
       imgDescription="Move-In & Move-Out Cleaning"
     >
+      {!isMobile && (
+        <h3 className="text-title-s">Move-In & Move-Out Cleaning</h3>
+      )}
       <p className="text-body">
         Whenever a home sits unoccupied, it can accumulate cobwebs and dust. To
         prepare for your family’s arrival, we clean the entire house to make it
@@ -66,8 +72,8 @@ const MovingMobile = () => {
       >
         Book this service
       </button>
-    </SectionContainerMobile>
+    </SectionContainer>
   );
 };
 
-export default MovingMobile;
+export default Moving;
