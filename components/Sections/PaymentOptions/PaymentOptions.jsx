@@ -1,12 +1,12 @@
-import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
+import SectionContainer from '../../Commons/SectionContainer/SectionContainer';
 
-import styles from "./PaymentOptions.module.scss";
+import styles from './PaymentOptions.module.scss';
 
 const PaymentOptions = ({ isMobile }) => (
   <SectionContainer
     isMobile={isMobile}
     id="PaymentOptions"
-    imgUrl={`/images/${isMobile ? "img-mobile-07.jpg" : "img-desktop-08.jpg"}`}
+    imgUrl={`/images/${isMobile ? 'img-mobile-07.jpg' : 'img-desktop-08.jpg'}`}
     imgDescription="Payment Options"
   >
     {!isMobile && (
@@ -21,9 +21,9 @@ const PaymentOptions = ({ isMobile }) => (
     </p>
     <h2 className={`text-title-s ${styles.section}`}>Mobile Payment</h2>
     <p className={`text-body ${styles.description}`}>
-      We offer payment through mobile payment services: Venmo, Cashapp, and
-      Zelle. When sending payment please include your first and last name as
-      well as the date in the note/description.
+      We offer payment through mobile payment services: Venmo and Cashapp. When
+      sending payment please include your first and last name as well as the
+      date in the note/description.
     </p>
     <div className={styles.methods}>
       <p className="text-subtitle">VENMO: TBD</p>

@@ -1,6 +1,6 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import styles from "./SectionContainer.module.scss";
+import styles from './SectionContainer.module.scss';
 
 const SectionContainer = ({
   children,

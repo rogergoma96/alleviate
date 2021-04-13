@@ -1,13 +1,11 @@
-const Arrow = (props) => (
+const Arrow = () => (
   <svg
     width={24}
     height={24}
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
   >
-    <title>{"823ECEC9-25A5-40B2-9287-997CFD5A73F3"}</title>
     <defs>
       <path id="prefix__a" d="M7 7L.5.701 1.223 0 7 5.598 12.777 0l.723.701z" />
     </defs>
@@ -20,7 +18,7 @@ const Arrow = (props) => (
         transform="translate(-448 -4603)"
       >
         <tspan x={40} y={4617}>
-          {"Bathroom"}
+          Bathroom
         </tspan>
       </text>
       <use

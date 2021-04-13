@@ -1,10 +1,10 @@
-import { useState } from "react";
-import Link from "next/link";
-import MenuIcon from "../Commons/Icons/Menu";
-import CloseIcon from "../Commons/Icons/Close";
+import { useState } from 'react';
+import Link from 'next/link';
+import MenuIcon from '../Commons/Icons/Menu';
+import CloseIcon from '../Commons/Icons/Close';
 
-import styles from "./Menu.module.scss";
-import Dropdown from "../Commons/Dropdown/Dropdown";
+import styles from './Menu.module.scss';
+import Dropdown from '../Commons/Dropdown/Dropdown';
 
 const Menu = () => {
   const [unfolded, setUnfolded] = useState(false);
@@ -17,6 +17,7 @@ const Menu = () => {
   return (
     <header className={styles.header}>
       <button
+        type="button"
         className={styles.hamburger}
         onClick={() => setUnfolded(!unfolded)}
         aria-label="Menu"
@@ -40,7 +41,7 @@ const Menu = () => {
         </li>
         <li
           className={`text-action ${styles.section}`}
-          onClick={() => handleClickSection("AboutUs")}
+          onClick={() => handleClickSection('AboutUs')}
         >
           About us
         </li>
@@ -145,6 +146,8 @@ const Menu = () => {
           className={styles.wrapper}
           tabIndex="-1"
           onClick={() => setUnfolded(false)}
+          onKeyPress={() => setUnfolded(false)}
+          aria-label="Close menu"
         />
       )}
     </header>

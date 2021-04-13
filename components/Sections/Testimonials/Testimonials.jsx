@@ -1,4 +1,4 @@
-import styles from "./Testimonials.module.scss";
+import styles from './Testimonials.module.scss';
 
 const Testimonials = () => (
   <section id="Testimonials" className={styles.container}>
@@ -13,8 +13,8 @@ const Testimonials = () => (
       </div>
       <div className={styles.testimonial}>
         <p className="text-body-cormorant">
-          “I was going to host a lot of family for my son's graduation so I did
-          a deep clean and it was amazing. My house was spotless!
+          “I was going to host a lot of family for my son&apos;s graduation so I
+          did a deep clean and it was amazing. My house was spotless!
         </p>
         <p className="text-subtitle">– DELANEY</p>
       </div>

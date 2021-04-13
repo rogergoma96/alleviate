@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import Select from "../../Commons/Select/Select";
-import styles from "./Booking.module.scss";
-import Confirmation from "./Confirmation/Confirmation";
-import { sendBookingEmail } from "../../../services";
+import Image from 'next/image';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Select from '../../Commons/Select/Select';
+import styles from './Booking.module.scss';
+import Confirmation from './Confirmation/Confirmation';
+import sendBookingEmail from '../../../services';
 
 const Booking = ({ isMobile }) => {
   const [frequency, setFrequency] = useState(false);
@@ -26,7 +26,7 @@ const Booking = ({ isMobile }) => {
   };
 
   const checkFrequency = (e) => {
-    if (e.target.value === "Upkeep home & apartment" && !frequency) {
+    if (e.target.value === 'Upkeep home & apartment' && !frequency) {
       setFrequency(true);
     } else if (e.target.value && frequency) {
       setFrequency(false);
@@ -142,12 +142,12 @@ const Booking = ({ isMobile }) => {
           <Select
             placeholder="How did you hear about us *"
             options={[
-              "Referral",
-              "Instagram",
-              "Facebook",
-              "Nextdoor",
-              "Google",
-              "Other",
+              'Referral',
+              'Instagram',
+              'Facebook',
+              'Nextdoor',
+              'Google',
+              'Other',
             ]}
             name="findUs"
             register={register}
@@ -162,11 +162,11 @@ const Booking = ({ isMobile }) => {
           <Select
             placeholder="Select a cleaning service *"
             options={[
-              "Upkeep home & apartment",
-              "Deep home & apartment",
-              "Post construction & remodeling",
-              "AirBnB turn over",
-              "Move-In & Move Out",
+              'Upkeep home & apartment',
+              'Deep home & apartment',
+              'Post construction & remodeling',
+              'AirBnB turn over',
+              'Move-In & Move Out',
             ]}
             name="cleaningService"
             onChange={(e) => checkFrequency(e)}
@@ -179,24 +179,24 @@ const Booking = ({ isMobile }) => {
             </p>
           )}
           <p className={`text-body ${styles.info}`}>
-            For AirBnB turnover and Mov-In & Move Out a representative will call
-            them for an accurate quote.
+            For AirBnB turnover and Post Construction a representative will call
+            you for an accurate quote.
           </p>
           {frequency && (
             <>
               <Select
                 placeholder="Frequency *"
                 options={[
-                  "One-time",
-                  "Weekly (3 months)",
-                  "Weekly (6 months)",
-                  "Weekly (12 months)",
-                  "Biweekly (3 months)",
-                  "Biweekly (6 months)",
-                  "Biweekly (12 months)",
-                  "Monthly (3 months)",
-                  "Monthly (6 months)",
-                  "Monthly (12 months)",
+                  'One-time',
+                  'Weekly (3 months)',
+                  'Weekly (6 months)',
+                  'Weekly (12 months)',
+                  'Biweekly (3 months)',
+                  'Biweekly (6 months)',
+                  'Biweekly (12 months)',
+                  'Monthly (3 months)',
+                  'Monthly (6 months)',
+                  'Monthly (12 months)',
                 ]}
                 name="frequency"
                 register={register}
@@ -213,10 +213,10 @@ const Booking = ({ isMobile }) => {
           <Select
             placeholder="Add-Ons *"
             options={[
-              "Clean inside the oven",
-              "Clean inside the fridge",
-              "Clean baseboards",
-              "Interior window cleaning",
+              'Clean inside the oven',
+              'Clean inside the fridge',
+              'Clean baseboards',
+              'Interior window cleaning',
             ]}
             name="addOns"
             register={register}
@@ -252,7 +252,7 @@ const Booking = ({ isMobile }) => {
             Are there any special requests, accommodations?
           </label>
           <textarea
-            className={styles["special-requests"]}
+            className={styles['special-requests']}
             name="specialRequests"
             rows="15"
             id="specialRequests"
@@ -260,19 +260,14 @@ const Booking = ({ isMobile }) => {
           />
           <button className="btn-primary" type="submit" disabled={loading}>
             {!loading ? (
-              "Send your booking request"
+              'Send your booking request'
             ) : (
               <div className={styles.spinner} aria-label="Loading" />
             )}
           </button>
         </form>
       </section>
-      {confirmation && (
-        <Confirmation
-          data={confirmation}
-          onClose={() => setConfirmation(null)}
-        />
-      )}
+      {confirmation && <Confirmation onClose={() => setConfirmation(null)} />}
     </>
   );
 };

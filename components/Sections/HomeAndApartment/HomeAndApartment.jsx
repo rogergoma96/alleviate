@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
-import Dropdown from "../../Commons/Dropdown/Dropdown";
-import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
+import { useRouter } from 'next/router';
+import Dropdown from '../../Commons/Dropdown/Dropdown';
+import SectionContainer from '../../Commons/SectionContainer/SectionContainer';
 
-import styles from "./HomeAndApartment.module.scss";
+import styles from './HomeAndApartment.module.scss';
 
 const HomeAndApartment = ({ isMobile }) => {
   const router = useRouter();
@@ -14,7 +14,7 @@ const HomeAndApartment = ({ isMobile }) => {
         isMobile={isMobile}
         id="HomeAndApartment"
         imgUrl={`/images/${
-          isMobile ? "img-mobile-02.jpg" : "img-desktop-03.jpg"
+          isMobile ? 'img-mobile-02.jpg' : 'img-desktop-03.jpg'
         }`}
         imgDescription="Home & Apartment Cleaning"
       >
@@ -133,8 +133,9 @@ const HomeAndApartment = ({ isMobile }) => {
           <p className={`text-body ${styles.last}`}>Hand wipe mirror</p>
         </Dropdown>
         <button
+          type="button"
           className={`btn-primary ${styles.button}`}
-          onClick={() => router.push("/#Booking")}
+          onClick={() => router.push('/#Booking')}
         >
           Book this service
         </button>

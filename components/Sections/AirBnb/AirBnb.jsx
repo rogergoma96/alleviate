@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
-import Dropdown from "../../Commons/Dropdown/Dropdown";
-import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
+import { useRouter } from 'next/router';
+import Dropdown from '../../Commons/Dropdown/Dropdown';
+import SectionContainer from '../../Commons/SectionContainer/SectionContainer';
 
-import styles from "./AirBnb.module.scss";
+import styles from './AirBnb.module.scss';
 
 const AirBnb = ({ isMobile }) => {
   const router = useRouter();
@@ -12,7 +12,7 @@ const AirBnb = ({ isMobile }) => {
       isMobile={isMobile}
       id="AirBnB"
       imgUrl={`/images/${
-        isMobile ? "img-mobile-04.jpg" : "img-desktop-04.jpg"
+        isMobile ? 'img-mobile-04.jpg' : 'img-desktop-04.jpg'
       }`}
       imgDescription="AirBnB Turnover"
     >
@@ -74,8 +74,9 @@ const AirBnb = ({ isMobile }) => {
         </p>
       </Dropdown>
       <button
+        type="button"
         className={`btn-primary ${styles.button}`}
-        onClick={() => router.push("/#Booking")}
+        onClick={() => router.push('/#Booking')}
       >
         Book this service
       </button>

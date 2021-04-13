@@ -1,15 +1,10 @@
 module.exports = {
   env: {
     browser: true,
-    commonjs: true,
     es2021: true,
     node: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'plugin:jsx-a11y/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -19,8 +14,9 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'import/no-unresolved': 'off',
+    'react/prop-types': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };

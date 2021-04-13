@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
-import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
+import { useRouter } from 'next/router';
+import SectionContainer from '../../Commons/SectionContainer/SectionContainer';
 
-import styles from "./PostConstruction.module.scss";
+import styles from './PostConstruction.module.scss';
 
 const PostConstruction = ({ isMobile }) => {
   const router = useRouter();
@@ -11,7 +11,7 @@ const PostConstruction = ({ isMobile }) => {
       isMobile={isMobile}
       id="PostConstruction"
       imgUrl={`/images/${
-        isMobile ? "img-mobile-03.jpg" : "img-desktop-02.jpg"
+        isMobile ? 'img-mobile-03.jpg' : 'img-desktop-02.jpg'
       }`}
       imgDescription="Post Construction & Remodeling Cleaning"
     >
@@ -34,8 +34,9 @@ const PostConstruction = ({ isMobile }) => {
       <p className="text-body">Clean mirrors and indoor windows.</p>
       <p className="text-body">Clean cabinets, drawers, and closets</p>
       <button
+        type="button"
         className={`btn-primary ${styles.button}`}
-        onClick={() => router.push("/#Booking")}
+        onClick={() => router.push('/#Booking')}
       >
         Book this service
       </button>

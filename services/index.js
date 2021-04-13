@@ -1,11 +1,11 @@
 const sendBookingEmail = async (data) => {
-  const response = await fetch("/api/contact", {
-    method: "POST",
-    mode: "cors",
-    cache: "no-cache",
-    credentials: "same-origin",
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
   })
@@ -13,9 +13,9 @@ const sendBookingEmail = async (data) => {
       console.log(res);
       return res.json();
     })
-    .catch((data) => console.log(data));
+    .catch((err) => console.log(err));
 
   return response;
 };
 
-export { sendBookingEmail };
+export default sendBookingEmail;
