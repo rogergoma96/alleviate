@@ -6,11 +6,16 @@ import styles from './Booking.module.scss';
 import Confirmation from './Confirmation/Confirmation';
 import sendBookingEmail from '../../../services';
 
+import DataPrices from '../../../static/prices.json';
+
 const Booking = ({ isMobile }) => {
   const [frequency, setFrequency] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [price, setPrice] = useState(null);
   const [confirmation, setConfirmation] = useState(null);
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, getValues } = useForm({
+    mode: 'onChange',
+  });
 
   const processForm = async (data, e) => {
     e.preventDefault();
@@ -25,7 +30,39 @@ const Booking = ({ isMobile }) => {
     }
   };
 
+  const getPrice = () => {
+    const values = getValues();
+    let service = '';
+
+    if (
+      values.cleaningService !== 'AirBnB turn over' &&
+      values.cleaningService !== 'Post construction & remodeling'
+    ) {
+      if (values.rooms && values.baths && values.cleaningService) {
+        if (
+          values.cleaningService === 'Upkeep home & apartment' &&
+          values.frequency
+        ) {
+          service = DataPrices.frequency[values.frequency.split(' ')[0]];
+          setPrice(service[values.rooms - 1][values.baths - 1]);
+        } else if (values.cleaningService === 'Deep home & apartment') {
+          service = DataPrices.deepCleaning;
+          setPrice(service[values.rooms - 1][values.baths - 1]);
+        } else if (
+          values.cleaningService === 'Move-In' ||
+          values.cleaningService === 'Move-Out'
+        ) {
+          service = DataPrices[values.cleaningService];
+          setPrice(service[values.rooms - 1][values.baths - 1]);
+        }
+      }
+    } else {
+      setPrice(null);
+    }
+  };
+
   const checkFrequency = (e) => {
+    getPrice();
     if (e.target.value === 'Upkeep home & apartment' && !frequency) {
       setFrequency(true);
     } else if (e.target.value && frequency) {
@@ -166,7 +203,8 @@ const Booking = ({ isMobile }) => {
               'Deep home & apartment',
               'Post construction & remodeling',
               'AirBnB turn over',
-              'Move-In & Move Out',
+              'Move-In',
+              'Move-Out',
             ]}
             name="cleaningService"
             onChange={(e) => checkFrequency(e)}
@@ -201,6 +239,7 @@ const Booking = ({ isMobile }) => {
                 name="frequency"
                 register={register}
                 required
+                onChange={getPrice}
               />
               {!errors.frequency && <span className={styles.separator} />}
               {errors.frequency && (
@@ -211,12 +250,40 @@ const Booking = ({ isMobile }) => {
             </>
           )}
           <Select
+            placeholder="Rooms *"
+            options={['1', '2', '3', '4', '5', '6']}
+            name="rooms"
+            register={register}
+            required
+            onChange={getPrice}
+          />
+          {!errors.rooms && <span className={styles.separator} />}
+          {errors.rooms && (
+            <p className={`text-body ${styles.error}`}>
+              This is a required field.
+            </p>
+          )}
+          <Select
+            placeholder="Baths *"
+            options={['1', '2', '3', '4', '5', '6', '7']}
+            name="baths"
+            register={register}
+            required
+            onChange={getPrice}
+          />
+          {!errors.baths && <span className={styles.separator} />}
+          {errors.baths && (
+            <p className={`text-body ${styles.error}`}>
+              This is a required field.
+            </p>
+          )}
+          <Select
             placeholder="Add-Ons *"
             options={[
-              'Clean inside the oven',
-              'Clean inside the fridge',
-              'Clean baseboards',
-              'Interior window cleaning',
+              'Clean inside the oven $30',
+              'Clean inside the fridge $30',
+              'Clean baseboards $50',
+              'Interior window cleaning $3 per window',
             ]}
             name="addOns"
             register={register}
@@ -258,6 +325,7 @@ const Booking = ({ isMobile }) => {
             id="specialRequests"
             ref={register({ required: false })}
           />
+          {price && <p>Standard price without extras: ${price}</p>}
           <button className="btn-primary" type="submit" disabled={loading}>
             {!loading ? (
               'Send your booking request'

@@ -60,7 +60,7 @@
 .input {
   opacity: 0;
   position: absolute;
-  
+
   &:checked + .input-text {
     display: block;
   }
@@ -89,7 +89,7 @@
   padding: 16px;
   background-color: $color-white;
   cursor: pointer;
-  
+
   &:hover,
   &:focus {
     color: $color-gray-900;
@@ -102,4 +102,5 @@
   left: 0;
   width: 100%;
   height: 100%;
+  outline: none;
 }
