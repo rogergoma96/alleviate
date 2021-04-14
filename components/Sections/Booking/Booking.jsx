@@ -12,8 +12,12 @@ const Booking = ({ isMobile }) => {
   const [frequency, setFrequency] = useState(false);
   const [loading, setLoading] = useState(false);
   const [price, setPrice] = useState(null);
+  const [bathsAndRooms, setBathsAndRooms] = useState({
+    baths: [1, 2, 3, 4, 5, 6, 7],
+    rooms: [1, 2, 3, 4, 5, 6],
+  });
   const [confirmation, setConfirmation] = useState(null);
-  const { register, handleSubmit, errors, getValues } = useForm({
+  const { register, handleSubmit, errors, getValues, reset } = useForm({
     mode: 'onChange',
   });
 
@@ -27,12 +31,34 @@ const Booking = ({ isMobile }) => {
       e.target.reset();
       setConfirmation(true);
       setLoading(false);
+      setPrice(null);
     }
+  };
+
+  const calculateBathsOrRooms = (quantity) => {
+    const result = [];
+    const max = parseInt(quantity, 10);
+    for (let i = 0; i < max; i += 1) {
+      result.push(i + 1);
+    }
+
+    return result;
   };
 
   const getPrice = () => {
     const values = getValues();
     let service = '';
+
+    if (values.rooms) {
+      const baths = calculateBathsOrRooms(parseInt(values.rooms, 10) + 1);
+      setBathsAndRooms({ ...bathsAndRooms, baths });
+
+      if (parseInt(values.rooms, 10) + 1 < parseInt(values.baths, 10)) {
+        reset({ ...values, baths: null });
+      } else {
+        reset({ ...values });
+      }
+    }
 
     if (
       values.cleaningService !== 'AirBnB turn over' &&
@@ -251,7 +277,7 @@ const Booking = ({ isMobile }) => {
           )}
           <Select
             placeholder="Rooms *"
-            options={['1', '2', '3', '4', '5', '6']}
+            options={bathsAndRooms.rooms}
             name="rooms"
             register={register}
             required
@@ -265,7 +291,7 @@ const Booking = ({ isMobile }) => {
           )}
           <Select
             placeholder="Baths *"
-            options={['1', '2', '3', '4', '5', '6', '7']}
+            options={bathsAndRooms.baths}
             name="baths"
             register={register}
             required
@@ -280,14 +306,15 @@ const Booking = ({ isMobile }) => {
           <Select
             placeholder="Add-Ons *"
             options={[
-              'Clean inside the oven $30',
-              'Clean inside the fridge $30',
-              'Clean baseboards $50',
-              'Interior window cleaning $3 per window',
+              'Clean inside the oven - $30',
+              'Clean inside the fridge - $30',
+              'Clean baseboards - $50',
+              'Interior window cleaning - $3 per window',
             ]}
             name="addOns"
             register={register}
             required
+            multiple
           />
           {!errors.addOns && <span className={styles.separator} />}
           {errors.addOns && (
@@ -325,7 +352,12 @@ const Booking = ({ isMobile }) => {
             id="specialRequests"
             ref={register({ required: false })}
           />
-          {price && <p>Standard price without extras: ${price}</p>}
+          {price && (
+            <p className={`text-body ${styles.price}`}>
+              Standard price without extras:{' '}
+              <span className="text-action">${price}</span>
+            </p>
+          )}
           <button className="btn-primary" type="submit" disabled={loading}>
             {!loading ? (
               'Send your booking request'

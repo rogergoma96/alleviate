@@ -110,10 +110,14 @@
     margin: 32px 16px;
     max-width: none;
   }
-  
+
   .special-requests {
     font-size: $font-size-mbl-body;
   }
+}
+
+.price {
+  margin: 0 0 24px;
 }
 
 @keyframes spin {

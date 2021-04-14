@@ -9,6 +9,7 @@ const Select = ({
   onChange = null,
   register,
   required,
+  multiple,
 }) => {
   const [unfolded, setUnfolded] = useState(false);
 
@@ -33,7 +34,7 @@ const Select = ({
           <div className={styles.placeholder}>
             <input
               className={styles.input}
-              type="radio"
+              type={multiple ? 'checkbox' : 'radio'}
               id={`${name}-placeholder`}
               value={placeholder}
               name={name}
@@ -49,7 +50,7 @@ const Select = ({
             <div className={styles.value} key={option}>
               <input
                 className={styles.input}
-                type="radio"
+                type={multiple ? 'checkbox' : 'radio'}
                 id={`${name}-${index}`}
                 value={option}
                 name={name}

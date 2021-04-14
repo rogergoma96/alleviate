@@ -2,7 +2,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: auto auto;
   justify-content: space-between;
 }
 
@@ -21,6 +21,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 78px 2.5rem;
+  max-width: 700px;
 }
 
 :global(.is-mobile) {
@@ -30,14 +31,14 @@
     grid-template-columns: initial;
     margin: 0 16px 88px;
   }
-  
+
   .image {
     position: relative;
     height: calc((100vw - 32px) / 1.715);
     width: calc(100vw - 32px);
     margin: 16px 0;
   }
-  
+
   .texts {
     display: flex;
     flex-direction: column;
@@ -45,7 +46,7 @@
     margin: 0;
     padding: 0;
   }
-  
+
   .title {
     position: absolute;
     color: $color-white;
