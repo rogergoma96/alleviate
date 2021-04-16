@@ -355,7 +355,7 @@ const Booking = ({ isMobile }) => {
           {price && (
             <p className={`text-body ${styles.price}`}>
               Standard price without extras:{' '}
-              <span className="text-action">${price}</span>
+              <span className="text-title-s">${price}</span>
             </p>
           )}
           <button className="btn-primary" type="submit" disabled={loading}>
