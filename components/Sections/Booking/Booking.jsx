@@ -304,7 +304,7 @@ const Booking = ({ isMobile }) => {
             </p>
           )}
           <Select
-            placeholder="Add-Ons *"
+            placeholder="Add-Ons"
             options={[
               'Clean inside the oven - $30',
               'Clean inside the fridge - $30',
@@ -313,15 +313,9 @@ const Booking = ({ isMobile }) => {
             ]}
             name="addOns"
             register={register}
-            required
             multiple
           />
-          {!errors.addOns && <span className={styles.separator} />}
-          {errors.addOns && (
-            <p className={`text-body ${styles.error}`}>
-              This is a required field.
-            </p>
-          )}
+          <span className={styles.separator} />
           <label className={styles.label} htmlFor="date">
             Date
           </label>
