@@ -26,8 +26,8 @@ const PaymentOptions = ({ isMobile }) => (
       date in the note/description.
     </p>
     <div className={styles.methods}>
-      <p className="text-subtitle">VENMO: TBD</p>
-      <p className="text-subtitle">CASHAPP: TBD</p>
+      <p className="text-subtitle">VENMO: @AlleviateCS</p>
+      <p className="text-subtitle">CASHAPP: $AlleviateCS</p>
     </div>
     <h2 className={`text-title-s ${styles.section}`}>Card Payment</h2>
     <p className={`text-body ${styles.description}`}>

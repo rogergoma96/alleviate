@@ -1,14 +1,15 @@
-import SectionContainer from "../../Commons/SectionContainer/SectionContainer";
-import InstagramIcon from "../../Commons/Icons/Instagram";
-import FacebookIcon from "../../Commons/Icons/Facebook";
+import SectionContainer from '../../Commons/SectionContainer/SectionContainer';
+import InstagramIcon from '../../Commons/Icons/Instagram';
+import FacebookIcon from '../../Commons/Icons/Facebook';
+import LinkedinIcon from '../../Commons/Icons/Linkedin';
 
-import styles from "./Contact.module.scss";
+import styles from './Contact.module.scss';
 
 const Contact = ({ isMobile }) => (
   <SectionContainer
     isMobile={isMobile}
     id="Contact"
-    imgUrl={`/images/${isMobile ? "img-mobile-08.jpg" : "img-desktop-07.jpg"}`}
+    imgUrl={`/images/${isMobile ? 'img-mobile-08.jpg' : 'img-desktop-07.jpg'}`}
     imgDescription="Contact Information"
   >
     {!isMobile && (
@@ -18,7 +19,7 @@ const Contact = ({ isMobile }) => (
       If you have any questions, comments, or concerns contact us at any time!
     </p>
     <p className={`text-subtitle ${styles.contact}`}>
-      CALL OR TEXT: XXX XXX XXX
+      CALL OR TEXT: 678-530-5963
     </p>
     <p className={`text-subtitle ${styles.contact}`}>
       Alleviatecleaningservice@gmail.com
@@ -40,6 +41,14 @@ const Contact = ({ isMobile }) => (
         rel="noopener noreferrer"
       >
         <FacebookIcon />
+      </a>
+      <a
+        href="https://www.linkedin.com/company/alleviate-cleaning-service"
+        target="_blank"
+        className={styles.icon}
+        rel="noopener noreferrer"
+      >
+        <LinkedinIcon />
       </a>
     </div>
   </SectionContainer>
