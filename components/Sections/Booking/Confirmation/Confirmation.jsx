@@ -28,7 +28,7 @@ const Confirmation = ({ onClose }) => (
         CONFIRMATION EMAIL.
       </p>
       <p className="text-body">
-        If you have any questions call TBD or email
+        If you have any questions call 678-530-5963 or email
         alleviatecleaningservice@gmail.com
       </p>
     </div>
