@@ -1,13 +1,14 @@
-const sgMail = require("@sendgrid/mail");
-import emailBooking from "../../../components/Emails/booking";
+import emailBooking from '../../../components/Emails/booking';
+
+const sgMail = require('@sendgrid/mail');
 
 const mailer = async (data) => {
   sgMail.setApiKey(process.env.EMAIL_API_KEY);
 
   const msg = {
     to: process.env.EMAIL_SEND_TO,
-    from: "bookingalleviate@gmail.com",
-    subject: "New booking from alleviateclaningservice.com",
+    from: 'bookingalleviate@gmail.com',
+    subject: 'New booking from alleviateclaningservice.com',
     html: emailBooking(data),
   };
 
@@ -24,7 +25,7 @@ const mailer = async (data) => {
 };
 
 export default async (req, res) => {
-  if (req.method === "POST") {
+  if (req.method === 'POST') {
     const mailerRes = await mailer(req.body);
     res.send(mailerRes);
   }
